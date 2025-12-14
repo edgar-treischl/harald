@@ -8,7 +8,7 @@
             Edgar J. Treischl
           </h1>
           <h2 class="subtitle-1 font-weight-medium text-uppercase mb-4 text-center text-md-right">
-            Data Scientist
+            Fancy Fun
           </h2>
 
           <!-- Social Links -->
