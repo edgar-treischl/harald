@@ -436,10 +436,22 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node22/-/node22-22.0.5.tgz#56be9f34ccffd3aa85f9cc7365ad9765d5829adb"
   integrity sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw==
 
+"@types/debug@^4.1.12":
+  version "4.1.12"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.12.tgz#a155f21690871953410df4b6b6f53187f0500917"
+  integrity sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==
+  dependencies:
+    "@types/ms" "*"
+
 "@types/estree@1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
+
+"@types/ms@*":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/ms/-/ms-2.1.0.tgz#052aa67a48eccc4309d7f0191b7e41434b90bb78"
+  integrity sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==
 
 "@types/node@^22.9.0":
   version "22.19.3"
@@ -517,6 +529,11 @@
   dependencies:
     "@vue/compiler-dom" "3.5.25"
     "@vue/shared" "3.5.25"
+
+"@vue/devtools-api@^6.6.4":
+  version "6.6.4"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.6.4.tgz#cbe97fe0162b365edc1dba80e173f90492535343"
+  integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
 
 "@vue/language-core@3.1.8":
   version "3.1.8"
@@ -679,6 +696,11 @@ debug@^4.3.3, debug@^4.4.3:
   dependencies:
     ms "^2.1.3"
 
+dequal@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
+
 detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
@@ -721,6 +743,18 @@ esbuild@^0.25.0:
     "@esbuild/win32-ia32" "0.25.12"
     "@esbuild/win32-x64" "0.25.12"
 
+esprima-extract-comments@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/esprima-extract-comments/-/esprima-extract-comments-1.1.0.tgz#0dacab567a5900240de6d344cf18c33617becbc9"
+  integrity sha512-sBQUnvJwpeE9QnPrxh7dpI/dp67erYG4WXEAreAMoelPRpMR7NWb4YtwRPn9b+H1uLQKl/qS8WYmyaljTpjIsw==
+  dependencies:
+    esprima "^4.0.0"
+
+esprima@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
+  integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
+
 estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
@@ -730,6 +764,14 @@ exsolve@^1.0.7:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/exsolve/-/exsolve-1.0.8.tgz#7f5e34da61cd1116deda5136e62292c096f50613"
   integrity sha512-LmDxfWXwcTArk8fUEnOfSZpHOJ6zOMUJKOtFLFqJLoKJetuQG874Uc7/Kki7zFLzYybmZhp1M7+98pfMqeX8yA==
+
+extract-comments@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/extract-comments/-/extract-comments-1.1.0.tgz#b90bca033a056bd69b8ba1c6b6b120fc2ee95c18"
+  integrity sha512-dzbZV2AdSSVW/4E7Ti5hZdHWbA+Z80RJsJhr5uiL10oyjl/gy7/o+HI1HwK4/WSZhlq4SNKU3oUzXlM13Qx02Q==
+  dependencies:
+    esprima-extract-comments "^1.1.0"
+    parse-code-context "^1.0.0"
 
 fast-glob@^3.3.3:
   version "3.3.3"
@@ -822,6 +864,11 @@ json-parse-even-better-errors@^4.0.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-4.0.0.tgz#d3f67bd5925e81d3e31aa466acc821c8375cec43"
   integrity sha512-lR4MXjGNgkJc7tkQ97kb2nuEMnNCyU//XYVH0MKTGcXEiSudQ5MKGKen3C5QubYy0vmq+JGitUg92uuywGEwIA==
 
+json5@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
+  integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
+
 local-pkg@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/local-pkg/-/local-pkg-1.1.2.tgz#c03d208787126445303f8161619dc701afa4abb5"
@@ -909,6 +956,11 @@ npm-run-all2@^8.0.4:
     read-package-json-fast "^4.0.0"
     shell-quote "^1.7.3"
     which "^5.0.0"
+
+parse-code-context@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parse-code-context/-/parse-code-context-1.0.0.tgz#718c295c593d0d19a37f898473268cc75e98de1e"
+  integrity sha512-OZQaqKaQnR21iqhlnPfVisFjBWjhnMl5J9MgbP8xC+EwoVqbXrq78lp+9Zb3ahmLzrIX5Us/qbvBnaS3hkH6OA==
 
 path-browserify@^1.0.1:
   version "1.0.1"
@@ -1325,6 +1377,22 @@ varint@^6.0.0:
   resolved "https://registry.yarnpkg.com/varint/-/varint-6.0.0.tgz#9881eb0ce8feaea6512439d19ddf84bf551661d0"
   integrity sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==
 
+vite-plugin-pages@^0.33.2:
+  version "0.33.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pages/-/vite-plugin-pages-0.33.2.tgz#78b80a3d42bbbf567f7c5e78cbb16da4a2d57490"
+  integrity sha512-tuWrpIXCMjbCXyOvpMSXiQ+m72Tgl7wmQnwzAV9T6Q0OpEAnxKv8ZPG5yBiBljp+zVcRq/2b1IqmJHPpsE/LFg==
+  dependencies:
+    "@types/debug" "^4.1.12"
+    debug "^4.4.3"
+    dequal "^2.0.3"
+    extract-comments "^1.1.0"
+    json5 "^2.2.3"
+    local-pkg "^1.1.2"
+    micromatch "^4.0.8"
+    picocolors "^1.1.1"
+    tinyglobby "^0.2.15"
+    yaml "^2.8.2"
+
 vite-plugin-vuetify@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/vite-plugin-vuetify/-/vite-plugin-vuetify-2.1.2.tgz#8e28dcb5b20f4635d350010547654cf2b4dad373"
@@ -1352,6 +1420,13 @@ vscode-uri@^3.0.8:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.1.0.tgz#dd09ec5a66a38b5c3fffc774015713496d14e09c"
   integrity sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==
+
+vue-router@4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.6.4.tgz#a0a9cb9ef811a106d249e4bb9313d286718020d8"
+  integrity sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==
+  dependencies:
+    "@vue/devtools-api" "^6.6.4"
 
 vue-tsc@^3.0.7:
   version "3.1.8"
@@ -1395,3 +1470,8 @@ which@^5.0.0:
   integrity sha512-JEdGzHwwkrbWoGOlIHqQ5gtprKGOenpDHpxE9zVR1bWbOtYRyPPHMe9FaP6x61CmNaTThSkb0DAJte5jD+DmzQ==
   dependencies:
     isexe "^3.1.1"
+
+yaml@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.2.tgz#5694f25eca0ce9c3e7a9d9e00ce0ddabbd9e35c5"
+  integrity sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==
