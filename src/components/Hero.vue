@@ -8,7 +8,7 @@
             Edgar J. Treischl
           </h1>
           <h2 class="subtitle-1 font-weight-medium text-uppercase mb-4 text-center text-md-right">
-            Data Science Enthusiast
+            Data Scientist
           </h2>
 
           <!-- Social Links -->
