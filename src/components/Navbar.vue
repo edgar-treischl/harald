@@ -41,6 +41,16 @@
       <v-icon left class="text-gray-dark">mdi-information</v-icon>
       About
     </v-btn>
+        <v-btn
+      text
+      to="/contact"
+      class="d-flex align-center text-gray-dark"
+      :class="{ 'v-btn--active': $route.path === '/contact' }"
+      aria-label="About"
+    >
+      <v-icon left class="text-gray-dark">mdi-mail</v-icon>
+      Contact
+    </v-btn>
   </v-app-bar>
 </template>
 

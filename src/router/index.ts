@@ -6,14 +6,19 @@ import Home from '@/pages/index.vue'
 import About from '@/pages/about.vue'
 import Projects from '@/pages/Projects.vue'
 import ProjectDetail from '@/pages/ProjectDetail.vue'
+import TimelineView from '@/pages/TimelineView.vue'
+import Contact from '@/pages/Contact.vue'
+
 
 
 
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
+  { path: '/timeline', component: TimelineView },
   { path: '/projects', component: Projects },
-  { path: '/projects/:projectId', component: ProjectDetail, props: true }, // Dynamic route for project details
+  { path: '/projects/:projectId', component: ProjectDetail, props: true },
+  { path: '/contact', component: Contact },
 
 ]
 
