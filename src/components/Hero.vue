@@ -66,9 +66,9 @@
 <script setup>
 const socialLinks = [
   { icon: 'mdi-github', url: 'https://github.com/edgar-treischl', label: 'GitHub' },
-  { icon: 'mdi-google', url: 'https://www.google.com', label: 'Google' },
+  { icon: 'mdi-google', url: 'https://scholar.google.com/citations?user=hOhulnUAAAAJ&hl=en', label: 'Google' },
   { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/dr-edgar-treischl-b681791b2/?originalSubdomain=de', label: 'LinkedIn' },
-  { icon: 'mdi-file-pdf-box', url: '/media/CV_Treischl.pdf', label: 'CV PDF' }
+  { icon: 'mdi-file-pdf-box', url: `${import.meta.env.BASE_URL}CV_Treischl.pdf`, label: 'CV PDF' }
 ]
 </script>
 
