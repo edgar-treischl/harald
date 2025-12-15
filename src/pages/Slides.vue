@@ -2,7 +2,7 @@
   <v-container class="py-12" max-width="lg">
     <!-- Header -->
     <div class="header mb-8">
-      <h2 class="text-h4 font-weight-medium">My Projects</h2>
+      <h2 class="text-h4 font-weight-medium">Slides, Talks, and Workshops</h2>
 
       <v-chip-group
         v-model="activeTopic"
@@ -70,24 +70,23 @@ export default {
     return {
       activeTopic: 'All',
       currentIndex: 0,
-      topics: ['All', 'R'],
+      topics: ['All', 'Data Science', 'R'],
       projects: [
         {
           id: '1',
-          title: 'Practice R Package',
-          description:
-            'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
+          title: 'Git(Hub)',
+          description: 'Whether you’re a beginner looking for guidance or simply in need of teaching material, my slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
           image: Icon1,
-          url: 'https://example.com/practice-r',
-          topics: ['R'],
+          url: 'https://edgar-treischl.github.io/slidesGit/#1',
+          topics: ['Data Science'],
         },
         {
           id: '2',
-          title: 'Project 2',
-          description: 'This is a brief description of Project 2.',
+          title: 'R Package Development 2',
+          description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ;Docs with pkgdown ...',
           image: Icon2,
-          url: 'https://example.com/project-2',
-          topics: [],
+          url: 'https://edgar-treischl.github.io/slidesRPackages/#1',
+          topics: ['Data Science', 'R'],
         },
       ],
     }

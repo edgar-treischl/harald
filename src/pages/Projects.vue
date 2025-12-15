@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="header mb-10">
       <h2 class="text-h4 font-weight-medium">
-        My Projects
+        Project Portfolio
       </h2>
 
       <!-- Topic Filter -->
@@ -85,8 +85,7 @@ export default {
         {
           id: '1',
           title: 'Practice R Package',
-          description:
-            'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
+          description: 'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
           image: Icon1,
           topics: ['R'],
         },
