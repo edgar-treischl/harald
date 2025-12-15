@@ -1,10 +1,9 @@
 <template>
   <v-container class="py-12" max-width="lg">
     <!-- Header -->
-    <div class="header mb-10">
+    <div class="header mb-8">
       <h2 class="text-h4 font-weight-medium">My Projects</h2>
 
-      <!-- Topic Filter -->
       <v-chip-group
         v-model="activeTopic"
         mandatory
@@ -23,43 +22,41 @@
       </v-chip-group>
     </div>
 
-    <!-- Projects Grid -->
-    <v-row>
-      <v-col
-        v-for="project in filteredProjects"
+    <!-- Carousel with Integrated Text -->
+    <v-carousel
+      v-model="currentIndex"
+      hide-delimiters
+      show-arrows-on-hover
+      height="250"
+    >
+      <v-carousel-item
+        v-for="(project, index) in filteredProjects"
         :key="project.id"
-        cols="12"
-        sm="6"
       >
-        <v-card class="project-card" flat>
-          <a
-            :href="project.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="card-link"
-          >
-            <!-- Image -->
-            <v-img
-              :src="project.image"
-              :alt="project.title"
-              class="project-image"
-              height="200"
-              cover
-            />
-
-            <!-- Text Content -->
-            <v-card-text class="card-content">
-              <h3 class="text-subtitle-1 font-weight-medium mb-1">
-                {{ project.title }}
-              </h3>
-              <p class="text-body-2 text-medium-emphasis">
-                {{ project.description }}
-              </p>
-            </v-card-text>
-          </a>
-        </v-card>
-      </v-col>
-    </v-row>
+        <a
+          :href="project.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="carousel-link"
+        >
+          <v-img
+            :src="project.image"
+            :alt="project.title"
+            height="150"
+            contain
+            class="carousel-image"
+          />
+          <v-card-text class="carousel-caption">
+            <h3 class="text-subtitle-1 font-weight-medium mb-1">
+              {{ project.title }}
+            </h3>
+            <p class="text-body-2 text-medium-emphasis">
+              {{ project.description }}
+            </p>
+          </v-card-text>
+        </a>
+      </v-carousel-item>
+    </v-carousel>
   </v-container>
 </template>
 
@@ -72,6 +69,7 @@ export default {
   data() {
     return {
       activeTopic: 'All',
+      currentIndex: 0,
       topics: ['All', 'R'],
       projects: [
         {
@@ -110,7 +108,7 @@ export default {
 .header {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 /* Topic chips */
@@ -119,44 +117,32 @@ export default {
   color: #333;
   font-weight: 500;
 }
-
 .chip-active {
   background-color: #111 !important;
   color: #fff !important;
 }
 
-/* Grid Cards */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: #fff;
-  height: 100%; /* ensure full height in column */
-}
-
-.card-link {
+/* Carousel */
+.carousel-link {
   display: flex;
   flex-direction: column;
   height: 100%;
   text-decoration: none;
   color: inherit;
+  align-items: center;
 }
 
-/* Image */
-.project-image {
+.carousel-image {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
-/* Text content with white background */
-.card-content {
-  background-color: #ffffff; /* white background */
-  flex-grow: 1;              /* ensures all cards same height */
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.carousel-caption {
+  background-color: #ffffff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 8px;
 }
 </style>
