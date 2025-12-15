@@ -10,13 +10,13 @@
     <v-spacer></v-spacer>
 
     <!-- Navigation -->
-    <v-btn text :class="{ 'active-link': $route.path === '/' }" to="/">
-      <v-icon left>mdi-home</v-icon>
-      Home
-    </v-btn>
     <v-btn text :class="{ 'active-link': $route.path === '/projects' }" to="/projects">
       <v-icon left>mdi-folder</v-icon>
       Projects
+    </v-btn>
+    <v-btn text :class="{ 'active-link': $route.path === '/slides' }" to="/slides">
+      <v-icon left>mdi-rocket</v-icon>
+      Slides
     </v-btn>
     <v-btn text :class="{ 'active-link': $route.path === '/about' }" to="/about">
       <v-icon left>mdi-information</v-icon>

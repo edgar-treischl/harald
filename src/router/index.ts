@@ -8,6 +8,8 @@ import Projects from '@/pages/Projects.vue'
 import ProjectDetail from '@/pages/ProjectDetail.vue'
 import TimelineView from '@/pages/TimelineView.vue'
 import Contact from '@/pages/Contact.vue'
+import Slides from '@/pages/Slides.vue'
+
 
 
 
@@ -16,6 +18,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
   { path: '/timeline', component: TimelineView },
+   { path: '/slides', component: Slides },
   { path: '/projects', component: Projects },
   { path: '/projects/:projectId', component: ProjectDetail, props: true },
   { path: '/contact', component: Contact },
