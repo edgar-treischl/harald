@@ -1,6 +1,9 @@
 <template>
   <v-card class="blog-card" variant="outlined">
-    <router-link :to="`/blog/${article.id}`" class="card-link">
+    <router-link
+      :to="`/blog/${article.id}`"
+      class="card-link"
+    >
       <v-card-title>{{ article.title }}</v-card-title>
       <v-card-subtitle>{{ article.date }}</v-card-subtitle>
       <v-card-text>{{ article.excerpt }}</v-card-text>
@@ -20,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 
 export interface BlogArticle {
   id: string
@@ -43,13 +46,13 @@ export default {
 
 <style scoped>
 .card-link {
+  display: block;
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 
 .blog-card {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .blog-card:hover {
