@@ -21,6 +21,16 @@
       <v-icon left class="text-gray-dark">mdi-home</v-icon>
       Home
     </v-btn>
+        <v-btn
+      text
+      to="/projects"
+      class="d-flex align-center text-gray-dark"
+      :class="{ 'v-btn--active': $route.path === '/projects' }"
+      aria-label="Home"
+    >
+      <v-icon left class="text-gray-dark">mdi-exclamation</v-icon>
+      Projects
+    </v-btn>
     <v-btn
       text
       to="/about"
