@@ -27,7 +27,7 @@
       v-model="currentIndex"
       hide-delimiters
       show-arrows-on-hover
-      height="250"
+      height="450"
     >
       <v-carousel-item
         v-for="(project, index) in filteredProjects"

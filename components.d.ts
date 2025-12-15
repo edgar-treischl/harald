@@ -11,6 +11,9 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BlogCard: typeof import('./src/components/BlogCard.vue')['default']
+    BlogList: typeof import('./src/components/BlogList.vue')['default']
+    BlogPage: typeof import('./src/components/BlogPage.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
