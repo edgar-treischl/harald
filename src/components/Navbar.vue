@@ -1,96 +1,56 @@
 <template>
-  <v-app-bar app color="white" dark elevate-on-scroll>
-    <!-- App Title (left-aligned) -->
+  <v-app-bar app color="white" elevate-on-scroll>
+    <!-- Logo / Title -->
     <v-toolbar-title>
-      <router-link to="/" class="text-h5 font-weight-bold text-gray-dark">
-        My App
+      <router-link to="/" class="flex items-center cursor-pointer">
+        <img :src="Icon" alt="App Icon" class="app-icon" />
       </router-link>
     </v-toolbar-title>
 
-    <!-- Spacer to push the buttons to the right -->
     <v-spacer></v-spacer>
 
-    <!-- Navigation with Icons and Text -->
-    <v-btn
-      text
-      to="/"
-      class="d-flex align-center text-gray-dark"
-      :class="{ 'v-btn--active': $route.path === '/' }"
-      aria-label="Home"
-    >
-      <v-icon left class="text-gray-dark">mdi-home</v-icon>
+    <!-- Navigation -->
+    <v-btn text :class="{ 'active-link': $route.path === '/' }" to="/">
+      <v-icon left>mdi-home</v-icon>
       Home
     </v-btn>
-        <v-btn
-      text
-      to="/projects"
-      class="d-flex align-center text-gray-dark"
-      :class="{ 'v-btn--active': $route.path === '/projects' }"
-      aria-label="Home"
-    >
-      <v-icon left class="text-gray-dark">mdi-exclamation</v-icon>
+    <v-btn text :class="{ 'active-link': $route.path === '/projects' }" to="/projects">
+      <v-icon left>mdi-folder</v-icon>
       Projects
     </v-btn>
-    <v-btn
-      text
-      to="/about"
-      class="d-flex align-center text-gray-dark"
-      :class="{ 'v-btn--active': $route.path === '/about' }"
-      aria-label="About"
-    >
-      <v-icon left class="text-gray-dark">mdi-information</v-icon>
+    <v-btn text :class="{ 'active-link': $route.path === '/about' }" to="/about">
+      <v-icon left>mdi-information</v-icon>
       About
     </v-btn>
-        <v-btn
-      text
-      to="/contact"
-      class="d-flex align-center text-gray-dark"
-      :class="{ 'v-btn--active': $route.path === '/contact' }"
-      aria-label="About"
-    >
-      <v-icon left class="text-gray-dark">mdi-mail</v-icon>
+    <v-btn text :class="{ 'active-link': $route.path === '/contact' }" to="/contact">
+      <v-icon left>mdi-email</v-icon>
       Contact
     </v-btn>
   </v-app-bar>
 </template>
 
 <script setup>
-// No additional logic needed for this simple navbar
+import Icon from '@/assets/images/icon.png'
 </script>
 
 <style scoped>
-/* Refine the navbar for a cleaner, modern look */
-.v-toolbar-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+.app-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s;
+}
+.app-icon:hover {
+  transform: scale(1.1);
 }
 
 .v-btn {
-  padding: 8px 16px;  /* Adjust padding for a more spacious and balanced look */
+  padding: 8px 16px;
+  color: #5f6368;
 }
-
-.v-app-bar {
-  box-shadow: none;  /* Remove default shadow for a flatter look */
-}
-
 .v-btn:hover {
-  background-color: rgba(0, 0, 0, 0.06);  /* Subtle hover effect */
+  background-color: rgba(0, 0, 0, 0.06);
 }
-
-.v-btn--active {
-  background-color: rgba(0, 0, 0, 0.1);  /* Highlight active button */
-}
-
-.v-icon {
-  margin-right: 8px;  /* Space between icon and text */
-}
-
-.v-btn .v-icon {
-  font-size: 20px;  /* Icon size */
-}
-
-/* Make sure gray color is consistent across text and icons */
-.text-gray-dark {
-  color: #5f6368; /* A decent dark gray */
+.active-link {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
