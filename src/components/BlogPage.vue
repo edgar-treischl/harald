@@ -3,13 +3,15 @@
     <v-row>
       <v-col>
         <h1 class="text-h3 font-weight-bold mb-1">{{ meta.title }}</h1>
-        <div class="text-subtitle-2 text--secondary mb-3">{{ meta.date }}</div>
+        <div class="text-subtitle-2 text--secondary mb-3">
+          {{ meta.date }}
+        </div>
 
         <v-chip
           v-for="tag in meta.tags"
           :key="tag"
           class="ma-1"
-          small
+          size="small"
           color="primary"
           text-color="white"
         >
@@ -32,43 +34,61 @@
 import { ref, onMounted } from 'vue'
 import MarkdownIt from 'markdown-it'
 
+interface BlogMeta {
+  title: string
+  date: string
+  tags: string[]
+  excerpt: string
+}
+
+interface FrontMatterResult {
+  attributes: Record<string, string | string[]>
+  body: string
+}
+
 export default {
   name: 'BlogPage',
   props: {
-    file: { type: String, required: true }, // e.g., "2025-12-15-my-first-article.md"
+    file: {
+      type: String,
+      required: true,
+    },
   },
   setup(props) {
-    const meta = ref({
+    const meta = ref<BlogMeta>({
       title: '',
       date: '',
-      tags: [] as string[],
+      tags: [],
       excerpt: '',
     })
-    const htmlContent = ref('')
 
-    // Simple browser-friendly front matter parser
-    function parseFrontMatter(md: string) {
+    const htmlContent = ref<string>('')
+
+    // Browser-safe, TS-safe front matter parser
+    function parseFrontMatter(md: string): FrontMatterResult {
       const match = /^---\n([\s\S]+?)\n---/.exec(md)
-      let attributes: Record<string, any> = {}
+      const attributes: Record<string, string | string[]> = {}
       let body = md
 
-      if (match) {
-        const yaml = match[1]
+      if (match && match[1]) {
+        const yaml: string = match[1]
         body = md.slice(match[0].length).trim()
 
-        yaml.split('\n').forEach((line) => {
+        yaml.split('\n').forEach((line: string) => {
           const [key, ...rest] = line.split(':')
-          if (key) {
-            let value: any = rest.join(':').trim()
-            // Convert simple arrays like [a, b] to array
-            if (/^\[.*\]$/.test(value)) {
-              value = value
-                .replace(/^\[|\]$/g, '')
-                .split(',')
-                .map((v) => v.trim())
-            }
-            attributes[key.trim()] = value
+          if (!key) return
+
+          let value: string | string[] = rest.join(':').trim()
+
+          // Parse simple arrays: [a, b, c]
+          if (/^\[.*\]$/.test(value)) {
+            value = value
+              .replace(/^\[|\]$/g, '')
+              .split(',')
+              .map((v: string) => v.trim())
           }
+
+          attributes[key.trim()] = value
         })
       }
 
@@ -77,22 +97,30 @@ export default {
 
     onMounted(async () => {
       try {
-        // Use BASE_URL to handle apps served from a subpath
         const url = `${import.meta.env.BASE_URL}articles/${props.file}`
         const res = await fetch(url)
-        if (!res.ok) throw new Error(`Failed to fetch ${props.file} at ${url}`)
-        const raw = await res.text()
 
+        if (!res.ok) {
+          throw new Error(`Failed to fetch ${props.file} at ${url}`)
+        }
+
+        const raw = await res.text()
         const parsed = parseFrontMatter(raw)
 
         meta.value = {
-          title: parsed.attributes.title || '',
-          date: parsed.attributes.date || '',
-          tags: parsed.attributes.tags || [],
-          excerpt: parsed.attributes.excerpt || '',
+          title: String(parsed.attributes.title ?? ''),
+          date: String(parsed.attributes.date ?? ''),
+          tags: Array.isArray(parsed.attributes.tags)
+            ? parsed.attributes.tags
+            : [],
+          excerpt: String(parsed.attributes.excerpt ?? ''),
         }
 
-        const md = new MarkdownIt({ html: true, linkify: true })
+        const md = new MarkdownIt({
+          html: true,
+          linkify: true,
+        })
+
         htmlContent.value = md.render(parsed.body)
       } catch (err) {
         console.error('Error loading markdown:', err)
@@ -100,7 +128,10 @@ export default {
       }
     })
 
-    return { meta, htmlContent }
+    return {
+      meta,
+      htmlContent,
+    }
   },
 }
 </script>
