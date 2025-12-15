@@ -3,66 +3,65 @@
     class="project-detail py-16"
     max-width="xl"
   >
-    <!-- Project Title -->
-    <h1 class="text-h3 font-weight-bold text-center mb-8">
+    <!-- Title -->
+    <h1 class="text-h4 font-weight-medium text-center mb-12">
       {{ project.title }}
     </h1>
 
-    <v-row class="project-content" align="center">
-      <!-- Project Info -->
+    <v-row
+      class="project-content"
+      align="center"
+    >
+      <!-- Text / Info -->
       <v-col
         cols="12"
         md="6"
         order="2"
         order-md="1"
       >
-        <div class="d-flex flex-column justify-space-between h-100">
+        <div class="content-wrapper">
           <!-- Description -->
-          <div class="mb-8">
-            <h2 class="text-h5 font-weight-semibold mb-4">
-              Project Description
+          <section class="mb-10">
+            <h2 class="text-subtitle-1 font-weight-medium mb-3">
+              Description
             </h2>
-            <p class="text-body-1 text-grey-darken-1">
+            <p class="text-body-2 text-medium-emphasis">
               {{ project.description }}
             </p>
-          </div>
+          </section>
 
           <!-- Technologies -->
-          <div class="mb-8">
-            <h3 class="text-h6 font-weight-semibold mb-3">
-              Technologies Used
+          <section class="mb-10">
+            <h3 class="text-subtitle-1 font-weight-medium mb-3">
+              Technologies
             </h3>
             <v-chip-group column>
               <v-chip
                 v-for="tech in project.technologies"
                 :key="tech"
-                color="grey-lighten-3"
-                class="mr-2 mb-2"
+                class="tech-chip"
                 label
               >
                 {{ tech }}
               </v-chip>
             </v-chip-group>
-          </div>
+          </section>
 
-          <!-- Visit Project -->
-          <div>
-            <v-btn
-              :href="project.link"
-              target="_blank"
-              rel="noopener noreferrer"
-              color="primary"
-              size="large"
-              rounded="xl"
-              elevation="4"
-            >
-              Visit Project →
-            </v-btn>
-          </div>
+          <!-- CTA -->
+          <v-btn
+            :href="project.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-btn"
+            rounded="xl"
+            size="large"
+          >
+            Visit Project →
+          </v-btn>
         </div>
       </v-col>
 
-      <!-- Project Image -->
+      <!-- Image -->
       <v-col
         cols="12"
         md="6"
@@ -70,14 +69,14 @@
         order-md="2"
         class="d-flex justify-center"
       >
-        <v-img
-          :src="project.image"
-          :alt="project.title"
-          max-width="320"
-          height="192"
-          contain
-          class="rounded-lg elevation-2"
-        />
+        <div class="image-wrapper">
+          <v-img
+            :src="project.image"
+            :alt="project.title"
+            contain
+            class="project-image"
+          />
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -102,7 +101,7 @@ export default {
           id: '1',
           title: 'Practice R Package',
           description:
-            'The Practice R Package helps you improve your R skills through various exercises and challenges.',
+            'The Practice R Package helps you improve your R skills through structured exercises and interactive challenges.',
           image: Icon1,
           link: 'https://edgar-treischl.github.io/PracticeR/',
           technologies: ['Vue.js', 'Node.js', 'MongoDB'],
@@ -120,9 +119,7 @@ export default {
   },
   computed: {
     project() {
-      return (
-        this.projects.find(p => p.id === this.projectId) || {}
-      )
+      return this.projects.find(p => p.id === this.projectId) || {}
     },
   },
 }
@@ -130,10 +127,54 @@ export default {
 
 <style scoped>
 .project-detail {
-  background-color: #f4f7fc;
+  background-color: #fafafa;
 }
 
+/* Layout */
 .project-content {
-  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 64px;
+}
+
+/* Text content */
+.content-wrapper {
+  max-width: 480px;
+}
+
+.text-medium-emphasis {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Chips */
+.tech-chip {
+  margin-bottom: 8px;
+  margin-right: 8px;
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Button */
+.project-btn {
+  background-color: #111;
+  color: #fff;
+  text-transform: none;
+  font-weight: 500;
+  padding: 12px 28px;
+}
+
+/* Image */
+.image-wrapper {
+  width: 100%;
+  max-width: 360px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.project-image {
+  height: 220px;
 }
 </style>

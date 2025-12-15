@@ -1,14 +1,33 @@
 <template>
   <v-container class="py-12" max-width="xl">
-    <!-- Title -->
-    <h2 class="text-h3 font-weight-bold text-center mb-8">
-      My Projects
-    </h2>
+    <!-- Header -->
+    <div class="header mb-10">
+      <h2 class="text-h4 font-weight-medium">
+        My Projects
+      </h2>
+
+      <!-- Topic Filter -->
+      <v-chip-group
+        v-model="activeTopic"
+        mandatory
+        selected-class="chip-active"
+      >
+        <v-chip
+          v-for="topic in topics"
+          :key="topic"
+          :value="topic"
+          label
+          class="topic-chip"
+        >
+          {{ topic }}
+        </v-chip>
+      </v-chip-group>
+    </div>
 
     <!-- Projects Grid -->
-    <v-row dense>
+    <v-row>
       <v-col
-        v-for="project in projects"
+        v-for="project in filteredProjects"
         :key="project.id"
         cols="12"
         sm="6"
@@ -17,30 +36,30 @@
         <v-hover v-slot="{ isHovering, props }">
           <v-card
             v-bind="props"
-            rounded="lg"
-            elevation="4"
             class="project-card"
             :class="{ hovered: isHovering }"
+            flat
           >
             <router-link
               :to="`/projects/${project.id}`"
-              class="text-decoration-none text-inherit"
+              class="card-link"
             >
-              <!-- Project Image -->
-              <v-img
-                :src="project.image"
-                :alt="project.title"
-                height="192"
-                contain
-                class="bg-white"
-              />
+              <!-- Image -->
+              <div class="image-wrapper">
+                <v-img
+                  :src="project.image"
+                  :alt="project.title"
+                  contain
+                  class="project-image"
+                />
+              </div>
 
-              <!-- Project Info -->
-              <v-card-text>
-                <h3 class="text-h6 font-weight-semibold mb-2">
+              <!-- Content -->
+              <v-card-text class="card-content">
+                <h3 class="text-subtitle-1 font-weight-medium mb-1">
                   {{ project.title }}
                 </h3>
-                <p class="text-body-2 text-grey-darken-1">
+                <p class="text-body-2 text-medium-emphasis">
                   {{ project.description }}
                 </p>
               </v-card-text>
@@ -60,33 +79,100 @@ export default {
   name: 'Projects',
   data() {
     return {
+      activeTopic: 'All',
+      topics: ['All', 'R'],
       projects: [
         {
           id: '1',
           title: 'Practice R Package',
           description:
-            'The Practice R book is accompanied by an R package. This provides further learning materials that include interactive tutorials ...',
+            'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
           image: Icon1,
+          topics: ['R'],
         },
         {
           id: '2',
           title: 'Project 2',
           description: 'This is a brief description of Project 2.',
           image: Icon2,
+          topics: [],
         },
       ],
     }
+  },
+  computed: {
+    filteredProjects() {
+      if (this.activeTopic === 'All') {
+        return this.projects
+      }
+      return this.projects.filter(project =>
+        project.topics.includes(this.activeTopic)
+      )
+    },
   },
 }
 </script>
 
 <style scoped>
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Topic chips */
+.topic-chip {
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: 500;
+}
+
+.chip-active {
+  background-color: #111 !important;
+  color: #fff !important;
+}
+
+/* Cards */
 .project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .project-card.hovered {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image */
+.image-wrapper {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-image {
+  max-height: 120px;
+  max-width: 80%;
+}
+
+/* Content */
+.card-content {
+  flex-grow: 1;
+  padding: 20px;
 }
 </style>
