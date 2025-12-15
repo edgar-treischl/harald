@@ -1,9 +1,5 @@
 <template>
-  <v-container
-    class="project-detail py-16"
-    max-width="xl"
-  >
-    <!-- Title -->
+  <v-container class="project-detail py-16" max-width="xl">
     <h1 class="text-h4 font-weight-medium text-center mb-12">
       {{ project.title }}
     </h1>
@@ -11,16 +7,31 @@
     <v-row
       class="project-content"
       align="center"
+      justify="center"
     >
-      <!-- Text / Info -->
+      <!-- Image Column -->
       <v-col
         cols="12"
         md="6"
-        order="2"
-        order-md="1"
+        class="d-flex justify-center align-center"
+      >
+        <div class="image-wrapper">
+          <v-img
+            :src="project.image"
+            :alt="project.title"
+            contain
+            class="project-image"
+          />
+        </div>
+      </v-col>
+
+      <!-- Text Column -->
+      <v-col
+        cols="12"
+        md="6"
+        class="d-flex flex-column justify-center"
       >
         <div class="content-wrapper">
-          <!-- Description -->
           <section class="mb-10">
             <h2 class="text-subtitle-1 font-weight-medium mb-3">
               Description
@@ -30,7 +41,6 @@
             </p>
           </section>
 
-          <!-- Technologies -->
           <section class="mb-10">
             <h3 class="text-subtitle-1 font-weight-medium mb-3">
               Technologies
@@ -47,7 +57,6 @@
             </v-chip-group>
           </section>
 
-          <!-- CTA -->
           <v-btn
             :href="project.link"
             target="_blank"
@@ -58,24 +67,6 @@
           >
             Visit Project →
           </v-btn>
-        </div>
-      </v-col>
-
-      <!-- Image -->
-      <v-col
-        cols="12"
-        md="6"
-        order="1"
-        order-md="2"
-        class="d-flex justify-center"
-      >
-        <div class="image-wrapper">
-          <v-img
-            :src="project.image"
-            :alt="project.title"
-            contain
-            class="project-image"
-          />
         </div>
       </v-col>
     </v-row>
@@ -119,7 +110,7 @@ export default {
   },
   computed: {
     project() {
-      return this.projects.find(p => p.id === this.projectId) || {}
+      return this.projects.find(p => p.id === this.projectId)
     },
   },
 }
@@ -130,14 +121,13 @@ export default {
   background-color: #fafafa;
 }
 
-/* Layout */
 .project-content {
   max-width: 1100px;
   margin: 0 auto;
   gap: 64px;
+  align-items: center;
 }
 
-/* Text content */
 .content-wrapper {
   max-width: 480px;
 }
@@ -146,7 +136,6 @@ export default {
   color: rgba(0, 0, 0, 0.6);
 }
 
-/* Chips */
 .tech-chip {
   margin-bottom: 8px;
   margin-right: 8px;
@@ -155,7 +144,6 @@ export default {
   font-weight: 500;
 }
 
-/* Button */
 .project-btn {
   background-color: #111;
   color: #fff;
@@ -164,17 +152,34 @@ export default {
   padding: 12px 28px;
 }
 
-/* Image */
 .image-wrapper {
   width: 100%;
   max-width: 360px;
   padding: 32px;
-  background-color: #ffffff;
   border-radius: 20px;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-image {
+  width: 100%;
   height: 220px;
+  object-fit: contain;
+}
+
+@media (max-width: 960px) {
+  .project-content {
+    gap: 32px;
+  }
+  .image-wrapper {
+    max-width: 280px;
+    padding: 24px;
+  }
+  .project-image {
+    height: 180px;
+  }
 }
 </style>
