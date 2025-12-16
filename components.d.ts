@@ -17,6 +17,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
+    Licence: typeof import('./src/components/Licence.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

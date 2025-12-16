@@ -9,6 +9,8 @@ import ProjectDetail from '@/pages/ProjectDetail.vue'
 import TimelineView from '@/pages/TimelineView.vue'
 import Contact from '@/pages/Contact.vue'
 import Slides from '@/pages/Slides.vue'
+import License from '@/pages/License.vue'
+
 
 // Blog
 import BlogList from '@/components/BlogList.vue'
@@ -23,6 +25,7 @@ const routes = [
   { path: '/projects', component: Projects },
   { path: '/projects/:projectId', component: ProjectDetail, props: true },
   { path: '/contact', component: Contact },
+  { path: '/license', component: License },
 
   // Blog
   { path: '/blog', component: BlogList },

@@ -1,8 +1,7 @@
 <template>
   <v-footer
-    color="grey darken-4"
-    class="white--text pa-12"
-    padless
+    class="footer"
+    color="grey-darken-3"
   >
     <v-container>
       <v-row
@@ -10,14 +9,28 @@
         justify="space-between"
         class="flex-wrap"
       >
-        <!-- Left: Brand / Name -->
-        <v-col cols="12" md="4" class="text-center text-md-left mb-6 mb-md-0">
-          <h2 class="font-weight-bold mb-2">Edgar J. Treischl</h2>
-          <p class="subtitle-2 mb-0">Data Scientist</p>
+        <!-- Left: Tech stack -->
+        <v-col
+          cols="12"
+          md="4"
+          class="d-flex justify-center justify-md-start align-center mb-2 mb-md-0"
+        >
+          <div class="tech">
+            <p>Made with</p>
+            <v-icon size="20" icon="mdi-vuejs" />
+            <p>,</p>
+            <v-icon size="20" icon="mdi-vuetify" />
+            <p>, and </p>
+            <span class="heart">❤️</span>
+          </div>
         </v-col>
 
-        <!-- Center: Social Links -->
-        <v-col cols="12" md="4" class="d-flex justify-center mb-6 mb-md-0">
+        <!-- Center: Social links -->
+        <v-col
+          cols="12"
+          md="4"
+          class="d-flex justify-center mb-2 mb-md-0"
+        >
           <v-btn
             v-for="(link, index) in socialLinks"
             :key="index"
@@ -25,32 +38,44 @@
             target="_blank"
             rel="noopener noreferrer"
             icon
-            class="social-btn white--text mx-2"
+            density="compact"
+            variant="text"
+            class="social-btn"
             :aria-label="link.label"
           >
-            <v-icon size="28">{{ link.icon }}</v-icon>
+            <v-icon :icon="link.icon" size="22" />
           </v-btn>
         </v-col>
 
-        <!-- Right: Quick links (optional) -->
-        <v-col cols="12" md="4" class="text-center text-md-right">
-          <v-btn text class="white--text" to="/about">About</v-btn>
-          <v-btn text class="white--text" to="/projects">Projects</v-btn>
-          <v-btn text class="white--text" to="/contact">Contact</v-btn>
+        <!-- Right: Licence -->
+        <v-col
+          cols="12"
+          md="4"
+          class="text-center text-md-right"
+        >
+          <v-btn
+            to="/license"
+            variant="text"
+            density="compact"
+            class="licence"
+          >
+            License
+          </v-btn>
         </v-col>
       </v-row>
 
-      <v-divider class="my-6" color="white"></v-divider>
+      <v-divider class="my-3" />
 
       <!-- Copyright -->
       <v-row justify="center">
-        <p class="caption mb-0">
-          &copy; {{ currentYear }} Edgar J. Treischl. All rights reserved.
-        </p>
+        <span class="copyright">
+          © {{ currentYear }} Edgar J. Treischl
+        </span>
       </v-row>
     </v-container>
   </v-footer>
 </template>
+
 
 <script setup lang="ts">
 interface SocialLink {
@@ -69,18 +94,41 @@ const socialLinks: SocialLink[] = [
 const currentYear = new Date().getFullYear()
 </script>
 
+
+
 <style scoped>
-.social-btn {
-  transition: transform 0.3s ease-in-out, background-color 0.3s;
-  width: 44px;
-  height: 44px;
+.footer {
+  padding: 12px 0;
+  opacity: 0.95;
+}
+
+.tech {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+  gap: 6px;
+  opacity: 0.9;
 }
+
+.heart {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.social-btn {
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
 .social-btn:hover {
-  transform: scale(1.2);
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.licence {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
 }
 </style>
