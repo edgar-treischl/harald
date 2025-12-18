@@ -76,12 +76,6 @@
           their respective owners and is used in accordance with their licenses
           or with permission.
         </p>
-
-        <v-divider class="my-8" />
-
-        <p class="text-caption text-medium-emphasis">
-          © {{ currentYear }} Edgar J. Treischl.
-        </p>
       </v-col>
     </v-row>
   </v-container>
