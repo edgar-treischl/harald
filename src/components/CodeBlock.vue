@@ -8,7 +8,7 @@
 <script lang="ts">
 import { ref, defineComponent, computed } from 'vue'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css' // required for syntax highlighting
+import 'highlight.js/styles/github.css' // syntax highlighting
 
 export default defineComponent({
   name: 'CodeBlock',
@@ -19,7 +19,7 @@ export default defineComponent({
   setup(props) {
     const copied = ref(false)
 
-    // Trim empty lines at start/end while preserving indentation
+    // Trim empty lines at start and end
     const trimmedCode = computed(() => {
       const lines = props.code.split('\n')
       let start = 0
@@ -31,16 +31,17 @@ export default defineComponent({
       return lines.slice(start, end + 1).join('\n')
     })
 
-    // Highlight the code
+    // Highlight the code safely
     const highlightedCode = computed(() => {
       if (props.language && hljs.getLanguage(props.language)) {
-        return hljs.highlight(trimmedCode.value, { language: props.language }).value
+        // Optional chaining + fallback ensures TS knows this is defined
+        return hljs.highlight(trimmedCode.value, { language: props.language })?.value ?? trimmedCode.value
       } else {
-        return hljs.highlightAuto(trimmedCode.value).value
+        return hljs.highlightAuto(trimmedCode.value)?.value ?? trimmedCode.value
       }
     })
 
-    // Copy to clipboard
+    // Copy code to clipboard
     function copyCode() {
       navigator.clipboard.writeText(trimmedCode.value).then(() => {
         copied.value = true
