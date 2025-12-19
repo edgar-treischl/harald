@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
+import { ref, defineComponent, computed } from 'vue'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css' // required for syntax highlighting
 
@@ -19,29 +19,40 @@ export default defineComponent({
   setup(props) {
     const copied = ref(false)
 
-    // Remove empty lines at the start and end, preserve indentation
-    const rawLines = props.code.split('\n')
-    let start = 0
-    let end = rawLines.length - 1
+    // Trim empty lines at start/end while preserving indentation
+    const trimmedCode = computed(() => {
+      const lines = props.code.split('\n')
+      let start = 0
+      let end = lines.length - 1
 
-    while (start <= end && rawLines[start].trim() === '') start++
-    while (end >= start && rawLines[end].trim() === '') end--
+      while (start <= end && lines[start].trim() === '') start++
+      while (end >= start && lines[end].trim() === '') end--
 
-    const trimmedCode = rawLines.slice(start, end + 1).join('\n')
+      return lines.slice(start, end + 1).join('\n')
+    })
 
-    const highlightedCode =
-      props.language && hljs.getLanguage(props.language)
-        ? hljs.highlight(trimmedCode, { language: props.language }).value
-        : hljs.highlightAuto(trimmedCode).value
+    // Highlight the code
+    const highlightedCode = computed(() => {
+      if (props.language && hljs.getLanguage(props.language)) {
+        return hljs.highlight(trimmedCode.value, { language: props.language }).value
+      } else {
+        return hljs.highlightAuto(trimmedCode.value).value
+      }
+    })
 
+    // Copy to clipboard
     function copyCode() {
-      navigator.clipboard.writeText(trimmedCode).then(() => {
+      navigator.clipboard.writeText(trimmedCode.value).then(() => {
         copied.value = true
         setTimeout(() => (copied.value = false), 1500)
       })
     }
 
-    return { highlightedCode, copyCode, copied }
+    return {
+      highlightedCode,
+      copyCode,
+      copied,
+    }
   },
 })
 </script>
@@ -49,18 +60,18 @@ export default defineComponent({
 <style scoped>
 .code-block {
   position: relative;
-  padding: 0.25em 0.6em;  /* ultra-tight padding */
+  padding: 0.25em 0.6em;
   border-radius: 6px;
   background-color: #f5f5f5;
   overflow: auto;
   font-size: 0.95rem;
-  margin: 0.5em 0;        /* small margin to separate from text */
-  line-height: 1.25;      /* tight line spacing */
+  margin: 0.5em 0;
+  line-height: 1.25;
 }
 
 .code-block code {
   display: block;
-  white-space: pre;       /* preserve indentation and line breaks */
+  white-space: pre;
 }
 
 .copy-btn {
