@@ -31,14 +31,21 @@ export default defineComponent({
       return lines.slice(start, end + 1).join('\n')
     })
 
-    // Highlight code
+    // Highlight code safely with fallback
     const highlightedCode = computed(() => {
+      const code = trimmedCode.value
+      let result: string | undefined
+
       if (props.language && hljs.getLanguage(props.language)) {
-        // Use non-null assertion to assure TS this is defined
-        return hljs.highlight(trimmedCode.value, { language: props.language })!.value
+        const res = hljs.highlight(code, { language: props.language })
+        result = res?.value
       } else {
-        return hljs.highlightAuto(trimmedCode.value)!.value
+        const res = hljs.highlightAuto(code)
+        result = res?.value
       }
+
+      // fallback to raw code if highlight fails
+      return result ?? code
     })
 
     function copyCode() {

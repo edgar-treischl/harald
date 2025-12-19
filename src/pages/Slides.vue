@@ -63,6 +63,8 @@
 <script>
 const Icon1 = import.meta.env.BASE_URL + 'images/slides_git.png'
 const Icon2 = import.meta.env.BASE_URL + 'images/rinp.png'
+const Icon3 = import.meta.env.BASE_URL + 'images/ebf_website.png'
+
 
 
 
@@ -89,6 +91,14 @@ export default {
           image: Icon2,
           url: 'https://edgar-treischl.github.io/slidesRPackages/#1',
           topics: ['Data Science', 'R'],
+        },
+        {
+          id: '3',
+          title: 'EBF Slides',
+          description: 'I held my lecture “educational empirical research” several times online, inspect all materials on the corresponding website.',
+          image: Icon3,
+          url: 'https://edgar-treischl.github.io/EBF/',
+          topics: [],
         },
       ],
     }
