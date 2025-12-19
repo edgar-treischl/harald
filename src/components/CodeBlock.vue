@@ -25,8 +25,8 @@ export default defineComponent({
       let start = 0
       let end = lines.length - 1
 
-      while (start <= end && lines[start].trim() === '') start++
-      while (end >= start && lines[end].trim() === '') end--
+      while (start <= end && lines[start] !== undefined && lines[start].trim() === '') start++
+      while (end >= start && lines[end] !== undefined && lines[end].trim() === '') end--
 
       return lines.slice(start, end + 1).join('\n')
     })
