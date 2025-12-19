@@ -26,7 +26,7 @@
       >
         <v-col cols="12" md="3" class="text-center mb-6 mb-md-0">
           <v-img
-            src="@/assets/images/avatar.png"
+            :src="avatarImage"
             alt="Portrait"
             max-width="180"
             aspect-ratio="1"
@@ -157,6 +157,8 @@
 
 
 <script setup>
+const avatarImage = import.meta.env.BASE_URL + 'images/avatar.png'
+
 const cvUrl = `${import.meta.env.BASE_URL}CV_Treischl.pdf`
 
 /* local scroll-fade directive (About page only) */

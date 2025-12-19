@@ -19,6 +19,7 @@ declare module 'vue' {
     Hero: typeof import('./src/components/Hero.vue')['default']
     Licence: typeof import('./src/components/Licence.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
+    Old_ProjectCard: typeof import('./src/components/Old_ProjectCard.vue')['default']
     ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

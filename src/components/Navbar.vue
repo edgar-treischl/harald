@@ -9,7 +9,7 @@
     <!-- Logo -->
     <v-toolbar-title>
       <router-link to="/" class="flex items-center cursor-pointer">
-        <img :src="Icon" alt="App Icon" class="app-icon" />
+        <img :src="logoSrc" alt="App Icon" class="app-icon" />
       </router-link>
     </v-toolbar-title>
 
@@ -59,11 +59,17 @@
 <script setup>
 import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
-import Icon from '@/assets/images/icon.png'
 
+// Mobile drawer state
 const drawer = ref(false)
+
+// Vuetify breakpoints
 const { smAndDown, mdAndUp } = useDisplay()
 
+// Logo path (computed in script, not template)
+const logoSrc = import.meta.env.BASE_URL + 'images/icon.png'
+
+// Navigation items
 const navItems = [
   { label: 'About', to: '/about', icon: 'mdi-information' },
   { label: 'Blog', to: '/blog', icon: 'mdi-pen' },

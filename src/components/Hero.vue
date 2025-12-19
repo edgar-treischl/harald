@@ -5,7 +5,7 @@
         <!-- Image Column (Left) -->
         <v-col cols="12" md="5" class="d-flex justify-center">
           <v-img
-            src="@/assets/images/circles.png"
+            :src="heroImage"
             alt="Hero Image"
             class="rounded-lg"
             max-width="600"
@@ -64,6 +64,8 @@
 </template>
 
 <script setup>
+const heroImage = import.meta.env.BASE_URL + 'images/circles.png'
+
 const socialLinks = [
   { icon: 'mdi-github', url: 'https://github.com/edgar-treischl', label: 'GitHub' },
   { icon: 'mdi-google', url: 'https://scholar.google.com/citations?user=hOhulnUAAAAJ&hl=en', label: 'Google' },

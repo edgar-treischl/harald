@@ -61,8 +61,10 @@
 </template>
 
 <script>
-import Icon1 from '@/assets/images/slides_git.png'
-import Icon2 from '@/assets/images/rinp.png'
+const Icon1 = import.meta.env.BASE_URL + 'images/slides_git.png'
+const Icon2 = import.meta.env.BASE_URL + 'images/rinp.png'
+
+
 
 export default {
   name: 'Slides',
