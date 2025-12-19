@@ -72,55 +72,23 @@
 </template>
 
 <script setup lang="ts">
-// ----------------------
-// Imports & Type Safety
-// ----------------------
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+import { projects as rawProjects } from '@/data/projects';
 
-// Tell TypeScript about your JS module
-// Create a `projects.d.ts` in `src/data/` if you like, or just declare here:
-declare module '@/data/projects' {
-  export const projects: {
-    id: number | string
-    title: string
-    description: string
-    image: string
-    topics: string[]
-  }[]
-}
-
-// Import the projects
-import { projects as rawProjects } from '@/data/projects'
-
-// ----------------------
-// TypeScript Interfaces
-// ----------------------
-interface Project {
-  id: number | string
-  title: string
-  description: string
-  image: string
-  topics: string[]
-  fullImage: string
-}
-
-// ----------------------
-// Reactive State
-// ----------------------
-const topics = ref<string[]>(['All', 'R'])
-const activeTopic = ref<string>('All')
-
-// Add full image URL
-const projectList: Project[] = rawProjects.map((p) => ({
+// Define additional fields locally, but don't re-export
+const projectList = rawProjects.map((p) => ({
   ...p,
   fullImage: import.meta.env.BASE_URL + p.image,
-}))
+}));
 
-// Filter projects by active topic
-const filteredProjects = computed<Project[]>(() => {
-  if (activeTopic.value === 'All') return projectList
-  return projectList.filter((p) => p.topics.includes(activeTopic.value))
-})
+const topics = ref<string[]>(['All', 'R']);
+const activeTopic = ref<string>('All');
+
+// Filtered project list
+const filteredProjects = computed(() => {
+  if (activeTopic.value === 'All') return projectList;
+  return projectList.filter((project) => project.topics.includes(activeTopic.value));
+});
 </script>
 
 <style scoped>
