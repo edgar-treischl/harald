@@ -47,7 +47,7 @@
               <!-- Image -->
               <div class="image-wrapper">
                 <v-img
-                  :src="project.image"
+                  :src="project.fullImage"
                   :alt="project.title"
                   contain
                   class="project-image"
@@ -71,34 +71,26 @@
   </v-container>
 </template>
 
-<script>
-import { projects } from '@/data/projects'
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { projects as rawProjects } from '@/data/projects'
 
-export default {
-  name: 'Projects',
+// Topics
+const topics = ref(['All', 'R'])
+const activeTopic = ref('All')
 
-  data() {
-    return {
-      activeTopic: 'All',
-      topics: ['All', 'R'],
-      projects,
-    }
-  },
+// Prepend BASE_URL to each project image
+const projects = rawProjects.map(p => ({
+  ...p,
+  fullImage: import.meta.env.BASE_URL + p.image
+}))
 
-  computed: {
-    filteredProjects() {
-      if (this.activeTopic === 'All') {
-        return this.projects
-      }
-
-      return this.projects.filter(project =>
-        project.topics.includes(this.activeTopic)
-      )
-    },
-  },
-}
+// Filtered projects based on topic
+const filteredProjects = computed(() => {
+  if (activeTopic.value === 'All') return projects
+  return projects.filter(p => p.topics.includes(activeTopic.value))
+})
 </script>
-
 
 <style scoped>
 /* Header */

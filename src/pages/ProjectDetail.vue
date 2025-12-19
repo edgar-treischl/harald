@@ -11,7 +11,7 @@
         <v-col cols="12" md="6" class="d-flex justify-center">
           <div class="image-frame">
             <v-img
-              :src="project.image"
+              :src="projectFullImage"
               :alt="project.title"
               class="project-image"
               contain
@@ -75,10 +75,6 @@
   </v-container>
 </template>
 
-
-
-
-
 <script>
 import { projects } from '@/data/projects'
 
@@ -96,10 +92,14 @@ export default {
     project() {
       return projects.find(p => p.id === this.projectId)
     },
+    projectFullImage() {
+      return this.project
+        ? import.meta.env.BASE_URL + this.project.image
+        : ''
+    },
   },
 }
 </script>
-
 
 <style scoped>
 .project-detail {
@@ -178,5 +178,4 @@ export default {
     max-height: 220px;
   }
 }
-
 </style>
