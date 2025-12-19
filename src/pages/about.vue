@@ -148,13 +148,6 @@
             Download CV (PDF)
           </v-btn>
 
-          <v-btn
-            href="mailto:your.email@domain.com"
-            variant="text"
-            size="large"
-          >
-            Get in Touch
-          </v-btn>
         </v-col>
       </v-row>
 

@@ -51,7 +51,7 @@
             to="/about"
             text
             rounded
-            color="grey darken-2"
+            color="grey-darken-2"
             large
             class="font-weight-medium"
           >

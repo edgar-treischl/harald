@@ -63,7 +63,8 @@
             rel="noopener noreferrer"
             class="project-btn"
             rounded="xl"
-            size="large"
+            color="grey-darken-2"
+            size="medium"
           >
             Visit Project →
           </v-btn>
@@ -89,13 +90,13 @@ export default {
     return {
       projects: [
         {
-          id: '1',
+          id: 'practicer',
           title: 'Practice R Package',
           description:
-            'The Practice R Package helps you improve your R skills through structured exercises and interactive challenges.',
+            'The Practice R package is the corresponding R package for the book. It contains tutorials, learning materials (e.g. RMarkdown templates) and helper functions to learn R.',
           image: Icon1,
           link: 'https://edgar-treischl.github.io/PracticeR/',
-          technologies: ['Vue.js', 'Node.js', 'MongoDB'],
+          technologies: ['R'],
         },
         {
           id: '2',

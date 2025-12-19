@@ -44,14 +44,15 @@
               required
             />
 
-            <v-btn
-              color="primary"
-              block
-              class="mt-4"
-              large
-            >
-              Send Message
-            </v-btn>
+          <v-btn
+            variant="outlined"
+            color="grey-darken-2"
+            block
+            class="mt-4"
+            large
+          >
+            Send Message
+          </v-btn>
           </v-form>
         </v-card>
       </v-col>

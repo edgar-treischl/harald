@@ -83,7 +83,7 @@ export default {
       topics: ['All', 'R'],
       projects: [
         {
-          id: '1',
+          id: 'practicer',
           title: 'Practice R Package',
           description: 'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
           image: Icon1,
