@@ -60,7 +60,7 @@
                   {{ project.title }}
                 </h3>
                 <p class="text-body-2 text-medium-emphasis">
-                  {{ project.description }}
+                  {{ project.description.length > 120 ? project.description.slice(0, 120) + '…' : project.description }}
                 </p>
               </v-card-text>
             </router-link>
@@ -72,38 +72,25 @@
 </template>
 
 <script>
-import Icon1 from '@/assets/images/practicer.png'
-import Icon2 from '@/assets/images/icon.png'
+import { projects } from '@/data/projects'
 
 export default {
   name: 'Projects',
+
   data() {
     return {
       activeTopic: 'All',
       topics: ['All', 'R'],
-      projects: [
-        {
-          id: 'practicer',
-          title: 'Practice R Package',
-          description: 'The Practice R book is accompanied by an R package with interactive tutorials and learning materials.',
-          image: Icon1,
-          topics: ['R'],
-        },
-        {
-          id: '2',
-          title: 'Project 2',
-          description: 'This is a brief description of Project 2.',
-          image: Icon2,
-          topics: [],
-        },
-      ],
+      projects,
     }
   },
+
   computed: {
     filteredProjects() {
       if (this.activeTopic === 'All') {
         return this.projects
       }
+
       return this.projects.filter(project =>
         project.topics.includes(this.activeTopic)
       )
@@ -111,6 +98,7 @@ export default {
   },
 }
 </script>
+
 
 <style scoped>
 /* Header */

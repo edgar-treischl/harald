@@ -4,131 +4,117 @@
       {{ project.title }}
     </h1>
 
-    <v-row
-      class="project-content"
-      align="center"
-      justify="center"
-    >
-      <!-- Image Column -->
-      <v-col
-        cols="12"
-        md="6"
-        class="d-flex justify-center align-center"
-      >
-        <div class="image-wrapper">
-          <v-img
-            :src="project.image"
-            :alt="project.title"
-            contain
-            class="project-image"
-          />
-        </div>
-      </v-col>
+    <div class="project-content">
+      <!-- ROW 1 -->
+      <v-row align="center">
+        <!-- Image -->
+        <v-col cols="12" md="6" class="d-flex justify-center">
+          <div class="image-frame">
+            <v-img
+              :src="project.image"
+              :alt="project.title"
+              class="project-image"
+              contain
+            />
+          </div>
+        </v-col>
 
-      <!-- Text Column -->
-      <v-col
-        cols="12"
-        md="6"
-        class="d-flex flex-column justify-center"
-      >
-        <div class="content-wrapper">
-          <section class="mb-10">
-            <h2 class="text-subtitle-1 font-weight-medium mb-3">
-              Description
-            </h2>
-            <p class="text-body-2 text-medium-emphasis">
-              {{ project.description }}
-            </p>
-          </section>
+        <!-- Text -->
+        <v-col cols="12" md="6">
+          <div class="content-wrapper">
+            <section class="mb-10">
+              <h2 class="text-subtitle-1 font-weight-medium mb-3">
+                Description
+              </h2>
+              <p class="text-body-2 text-medium-emphasis" v-html="project.description.replace(/\n/g, '<br/>')"></p>
+            </section>
 
-          <section class="mb-10">
-            <h3 class="text-subtitle-1 font-weight-medium mb-3">
-              Technologies
-            </h3>
-            <v-chip-group column>
-              <v-chip
-                v-for="tech in project.technologies"
-                :key="tech"
-                class="tech-chip"
-                label
-              >
-                {{ tech }}
-              </v-chip>
-            </v-chip-group>
-          </section>
+            <section>
+              <h3 class="text-subtitle-1 font-weight-medium mb-3">
+                Keywords
+              </h3>
+              <v-chip-group column>
+                <v-chip
+                  v-for="tech in project.technologies"
+                  :key="tech"
+                  class="tech-chip"
+                  label
+                >
+                  {{ tech }}
+                </v-chip>
+              </v-chip-group>
+            </section>
+          </div>
+        </v-col>
+      </v-row>
 
+      <!-- ROW 2 -->
+      <v-row align="center">
+        <!-- Empty cell for balance -->
+        <v-col cols="12" md="6" />
+
+        <!-- Action -->
+        <v-col
+          cols="12"
+          md="6"
+          class="d-flex justify-center justify-md-start"
+        >
           <v-btn
             :href="project.link"
             target="_blank"
             rel="noopener noreferrer"
             class="project-btn"
             rounded="xl"
-            color="grey-darken-2"
-            size="medium"
+            size="large"
           >
             Visit Project →
           </v-btn>
-        </div>
-      </v-col>
-    </v-row>
+        </v-col>
+      </v-row>
+    </div>
   </v-container>
 </template>
 
+
+
+
+
 <script>
-import Icon1 from '@/assets/images/practicer.png'
-import Icon2 from '@/assets/images/icon.png'
+import { projects } from '@/data/projects'
 
 export default {
   name: 'ProjectDetail',
+
   props: {
     projectId: {
       type: String,
       required: true,
     },
   },
-  data() {
-    return {
-      projects: [
-        {
-          id: 'practicer',
-          title: 'Practice R Package',
-          description:
-            'The Practice R package is the corresponding R package for the book. It contains tutorials, learning materials (e.g. RMarkdown templates) and helper functions to learn R.',
-          image: Icon1,
-          link: 'https://edgar-treischl.github.io/PracticeR/',
-          technologies: ['R'],
-        },
-        {
-          id: '2',
-          title: 'Project 2',
-          description: 'Detailed description of Project 2.',
-          image: Icon2,
-          link: '/projects/project2',
-          technologies: ['React', 'Firebase', 'CSS'],
-        },
-      ],
-    }
-  },
+
   computed: {
     project() {
-      return this.projects.find(p => p.id === this.projectId)
+      return projects.find(p => p.id === this.projectId)
     },
   },
 }
 </script>
+
 
 <style scoped>
 .project-detail {
   background-color: #fafafa;
 }
 
+/* Main layout */
 .project-content {
   max-width: 1100px;
   margin: 0 auto;
   gap: 64px;
-  align-items: center;
+  align-items: stretch;
 }
 
+/* Text column */
 .content-wrapper {
   max-width: 480px;
 }
@@ -137,6 +123,7 @@ export default {
   color: rgba(0, 0, 0, 0.6);
 }
 
+/* Technologies */
 .tech-chip {
   margin-bottom: 8px;
   margin-right: 8px;
@@ -145,6 +132,7 @@ export default {
   font-weight: 500;
 }
 
+/* Action button */
 .project-btn {
   background-color: #111;
   color: #fff;
@@ -153,34 +141,42 @@ export default {
   padding: 12px 28px;
 }
 
-.image-wrapper {
+/* ===== Image handling (UPDATED) ===== */
+.image-frame {
   width: 100%;
-  max-width: 360px;
-  padding: 32px;
+  max-width: 520px;
+  min-height: 320px;
+  padding: 24px;
   border-radius: 20px;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.06);
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .project-image {
   width: 100%;
-  height: 220px;
+  max-height: 280px;
   object-fit: contain;
 }
 
+/* Responsive */
 @media (max-width: 960px) {
   .project-content {
     gap: 32px;
   }
-  .image-wrapper {
-    max-width: 280px;
-    padding: 24px;
+
+  .image-frame {
+    max-width: 100%;
+    min-height: 260px;
+    padding: 20px;
   }
+
   .project-image {
-    height: 180px;
+    max-height: 220px;
   }
 }
+
 </style>
