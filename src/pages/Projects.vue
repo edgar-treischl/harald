@@ -111,15 +111,15 @@ const topics = ref<string[]>(['All', 'R'])
 const activeTopic = ref<string>('All')
 
 // Add full image URL
-const projects: Project[] = rawProjects.map((p) => ({
+const projectList: Project[] = rawProjects.map((p) => ({
   ...p,
   fullImage: import.meta.env.BASE_URL + p.image,
 }))
 
 // Filter projects by active topic
 const filteredProjects = computed<Project[]>(() => {
-  if (activeTopic.value === 'All') return projects
-  return projects.filter((p) => p.topics.includes(activeTopic.value))
+  if (activeTopic.value === 'All') return projectList
+  return projectList.filter((p) => p.topics.includes(activeTopic.value))
 })
 </script>
 
