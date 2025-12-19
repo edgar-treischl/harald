@@ -10,10 +10,10 @@
   },
   {
     "id": "my-first-article",
-    "title": "My First Article",
+    "title": "Create, scan, and correct exams with R",
     "date": "2025-12-15",
     "tags": ["Example", "Tutorial"],
     "excerpt": "This is a demo article for the blog system.",
-    "file": "2025-12-15-my-first-article.md"
+    "file": "2025-12-15-examr.md"
   }
 ]

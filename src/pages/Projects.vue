@@ -75,12 +75,22 @@
 import { ref, computed } from 'vue'
 import { projects as rawProjects } from '@/data/projects'
 
+// Define a TypeScript interface for your project
+interface Project {
+  id: number | string
+  title: string
+  description: string
+  image: string
+  topics: string[]
+  fullImage?: string // will be added later
+}
+
 // Topics
-const topics = ref(['All', 'R'])
-const activeTopic = ref('All')
+const topics = ref<string[]>(['All', 'R'])
+const activeTopic = ref<string>('All')
 
 // Prepend BASE_URL to each project image
-const projects = rawProjects.map(p => ({
+const projects: Project[] = rawProjects.map((p: Project) => ({
   ...p,
   fullImage: import.meta.env.BASE_URL + p.image
 }))
@@ -88,7 +98,7 @@ const projects = rawProjects.map(p => ({
 // Filtered projects based on topic
 const filteredProjects = computed(() => {
   if (activeTopic.value === 'All') return projects
-  return projects.filter(p => p.topics.includes(activeTopic.value))
+  return projects.filter((p: Project) => p.topics.includes(activeTopic.value))
 })
 </script>
 
