@@ -19,7 +19,7 @@ export default defineComponent({
   setup(props) {
     const copied = ref(false)
 
-    // Trim empty lines at start and end
+    // Trim empty lines at start/end
     const trimmedCode = computed(() => {
       const lines = props.code.split('\n')
       let start = 0
@@ -31,7 +31,7 @@ export default defineComponent({
       return lines.slice(start, end + 1).join('\n')
     })
 
-    // Highlight code safely with runtime check
+    // Highlight code safely with runtime check and fallback
     const highlightedCode = computed(() => {
       const code = trimmedCode.value
       let highlighted: string | undefined

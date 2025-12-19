@@ -72,33 +72,54 @@
 </template>
 
 <script setup lang="ts">
+// ----------------------
+// Imports & Type Safety
+// ----------------------
 import { ref, computed } from 'vue'
+
+// Tell TypeScript about your JS module
+// Create a `projects.d.ts` in `src/data/` if you like, or just declare here:
+declare module '@/data/projects' {
+  export const projects: {
+    id: number | string
+    title: string
+    description: string
+    image: string
+    topics: string[]
+  }[]
+}
+
+// Import the projects
 import { projects as rawProjects } from '@/data/projects'
 
-// Define a TypeScript interface for your project
+// ----------------------
+// TypeScript Interfaces
+// ----------------------
 interface Project {
   id: number | string
   title: string
   description: string
   image: string
   topics: string[]
-  fullImage?: string // will be added later
+  fullImage: string
 }
 
-// Topics
+// ----------------------
+// Reactive State
+// ----------------------
 const topics = ref<string[]>(['All', 'R'])
 const activeTopic = ref<string>('All')
 
-// Prepend BASE_URL to each project image
-const projects: Project[] = rawProjects.map((p: Project) => ({
+// Add full image URL
+const projects: Project[] = rawProjects.map((p) => ({
   ...p,
-  fullImage: import.meta.env.BASE_URL + p.image
+  fullImage: import.meta.env.BASE_URL + p.image,
 }))
 
-// Filtered projects based on topic
-const filteredProjects = computed(() => {
+// Filter projects by active topic
+const filteredProjects = computed<Project[]>(() => {
   if (activeTopic.value === 'All') return projects
-  return projects.filter((p: Project) => p.topics.includes(activeTopic.value))
+  return projects.filter((p) => p.topics.includes(activeTopic.value))
 })
 </script>
 
