@@ -19,7 +19,7 @@ export default defineComponent({
   setup(props) {
     const copied = ref(false)
 
-    // Trim empty lines at start/end
+    // Trim empty lines at start and end
     const trimmedCode = computed(() => {
       const lines = props.code.split('\n')
       let start = 0
@@ -31,23 +31,24 @@ export default defineComponent({
       return lines.slice(start, end + 1).join('\n')
     })
 
-    // Highlight code safely with fallback
+    // Highlight code safely with runtime check
     const highlightedCode = computed(() => {
       const code = trimmedCode.value
-      let result: string | undefined
+      let highlighted: string | undefined
 
       if (props.language && hljs.getLanguage(props.language)) {
-        const res = hljs.highlight(code, { language: props.language })
-        result = res?.value
+        const result = hljs.highlight(code, { language: props.language })
+        highlighted = result && result.value ? result.value : undefined
       } else {
-        const res = hljs.highlightAuto(code)
-        result = res?.value
+        const result = hljs.highlightAuto(code)
+        highlighted = result && result.value ? result.value : undefined
       }
 
-      // fallback to raw code if highlight fails
-      return result ?? code
+      // Fallback to raw code if highlighting fails
+      return highlighted ?? code
     })
 
+    // Copy to clipboard
     function copyCode() {
       navigator.clipboard.writeText(trimmedCode.value).then(() => {
         copied.value = true

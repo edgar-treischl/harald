@@ -61,9 +61,10 @@
 </template>
 
 <script>
-const Icon1 = import.meta.env.BASE_URL + 'images/slides_git.png'
-const Icon2 = import.meta.env.BASE_URL + 'images/rinp.png'
-const Icon3 = import.meta.env.BASE_URL + 'images/ebf_website.png'
+const Icon1 = import.meta.env.BASE_URL + 'images/slides_code.png'
+const Icon2 = import.meta.env.BASE_URL + 'images/slides_git.png'
+const Icon3 = import.meta.env.BASE_URL + 'images/rinp.png'
+const Icon4 = import.meta.env.BASE_URL + 'images/ebf_website.png'
 
 
 
@@ -78,25 +79,33 @@ export default {
       projects: [
         {
           id: '1',
-          title: 'Git(Hub)',
-          description: 'Whether you’re a beginner looking for guidance or simply in need of teaching material, my slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
+          title: 'Code Quality and Style',
+          description: 'Write clear code, write modular code, and develop with style ...',
           image: Icon1,
-          url: 'https://edgar-treischl.github.io/slidesGit/#1',
+          url: 'https://edgar-treischl.github.io/slidesCode/',
           topics: ['Data Science'],
         },
         {
           id: '2',
-          title: 'R Package Development 2',
-          description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ;Docs with pkgdown ...',
+          title: 'Git(Hub)',
+          description: 'Whether you’re a beginner looking for guidance or simply in need of teaching material, my slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
           image: Icon2,
-          url: 'https://edgar-treischl.github.io/slidesRPackages/#1',
-          topics: ['Data Science', 'R'],
+          url: 'https://edgar-treischl.github.io/slidesGit/',
+          topics: ['Data Science'],
         },
         {
           id: '3',
+          title: 'R Package Development 2',
+          description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ;Docs with pkgdown ...',
+          image: Icon3,
+          url: 'https://edgar-treischl.github.io/slidesRPackages/',
+          topics: ['Data Science', 'R'],
+        },
+        {
+          id: '4',
           title: 'EBF Slides',
           description: 'I held my lecture “educational empirical research” several times online, inspect all materials on the corresponding website.',
-          image: Icon3,
+          image: Icon4,
           url: 'https://edgar-treischl.github.io/EBF/',
           topics: [],
         },
