@@ -1,7 +1,4 @@
 <template>
-  <div style="height: 400px; border: 2px dashed red;">
-    LanguageBar is mounted
-  </div>
   <v-container class="py-12">
     <!-- Page Title -->
     <h2 class="text-h4 font-weight-bold text-center mb-8">

@@ -45,11 +45,10 @@
             and creating efficient data workflows, including automated 
             reporting systems and technical infrastructure improvements 
             for our team.
-            <br>
-            <br>
+            <br><br>
             Before moving fully into applied data science, I spent years 
             in social science research, earning a PhD and working 
-            on evaluation, causal analysis, and survey research. There, i’ve also 
+            on evaluation, causal analysis, and survey research. There, I’ve also 
             explored a wide range of data science topics, from 
             data visualization to machine learning and NLP.
           </p>
@@ -81,7 +80,9 @@
         </v-col>
       </v-row>
 
+      <!-- ===================== -->
       <!-- Publications -->
+      <!-- ===================== -->
       <v-row class="mt-16" v-fade>
         <v-col cols="12">
           <h2 class="text-h5 font-weight-bold mb-6">
@@ -114,26 +115,41 @@
         </v-col>
       </v-row>
 
-      <!-- Skills -->
+      <!-- ===================== -->
+      <!-- Skills & Tools -->
+      <!-- ===================== -->
       <v-row class="mt-16" v-fade>
         <v-col cols="12">
           <h2 class="text-h5 font-weight-bold mb-6">
             Skills & Tools
           </h2>
-          <div class="chart-wrapper mb-16">
-            <TopicTree />
-            <LanguageBar />
-          </div>
 
-          <v-chip-group column>
-            <v-chip variant="outlined" :ripple="false" class="static-chip">
-              R
-            </v-chip>
-          </v-chip-group>
+          <!-- Intro text -->
+          <p class="text-body-1 mb-8">
+            My work combines methodological rigor with practical tooling.
+            Below are visual summaries of my core analytical focus areas
+            and the programming environments I use most frequently.
+          </p>
+
+          <!-- TopicTree -->
+          <p class="text-body-1 mb-4">
+            Analytical and methodological areas spanning evaluation,
+            causal inference, data workflows, and applied analytics.
+          </p>
+          <TopicTree class="mb-16" />
+
+          <!-- LanguageBar -->
+          <p class="text-body-1 mb-4">
+            Programming languages and tools used for reproducible research,
+            automation, and deployment.
+          </p>
+          <LanguageBar />
         </v-col>
       </v-row>
 
+      <!-- ===================== -->
       <!-- Personal Note -->
+      <!-- ===================== -->
       <v-row class="mt-16" v-fade>
         <v-col cols="12" md="8">
           <h2 class="text-h5 font-weight-bold mb-4">
@@ -147,7 +163,9 @@
         </v-col>
       </v-row>
 
+      <!-- ===================== -->
       <!-- Call to Action -->
+      <!-- ===================== -->
       <v-row class="mt-16 justify-center text-center" v-fade>
         <v-col cols="12">
           <v-btn
@@ -155,11 +173,9 @@
             variant="outlined"
             color="grey-darken-2"
             size="large"
-            class="mr-4"
           >
             Download CV (PDF)
           </v-btn>
-
         </v-col>
       </v-row>
 
@@ -167,10 +183,8 @@
   </v-main>
 </template>
 
-
 <script setup>
 const avatarImage = import.meta.env.BASE_URL + 'images/avatar.png'
-
 const cvUrl = `${import.meta.env.BASE_URL}CV_Treischl.pdf`
 
 /* local scroll-fade directive (About page only) */
@@ -204,7 +218,6 @@ const vFade = {
 
 <style scoped>
 /* Intro section */
-
 .intro-heading {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(3rem, 6vw, 4.5rem);
@@ -218,14 +231,8 @@ const vFade = {
   filter: grayscale(10%);
 }
 
-/* Chips */
-.static-chip {
-  cursor: default;
-}
-
 /* Body text rhythm */
 p {
   line-height: 1.7;
 }
-
 </style>
