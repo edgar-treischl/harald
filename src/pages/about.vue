@@ -120,6 +120,9 @@
           <h2 class="text-h5 font-weight-bold mb-6">
             Skills & Tools
           </h2>
+          <div class="chart-wrapper mb-16">
+            <LanguageBar />
+          </div>
 
           <v-chip-group column>
             <v-chip variant="outlined" :ripple="false" class="static-chip">

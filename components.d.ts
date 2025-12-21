@@ -18,6 +18,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
+    LanguageBar: typeof import('./src/components/LanguageBar.vue')['default']
     Licence: typeof import('./src/components/Licence.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     Old_ProjectCard: typeof import('./src/components/Old_ProjectCard.vue')['default']

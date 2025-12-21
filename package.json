@@ -13,9 +13,12 @@
   "dependencies": {
     "@fontsource/roboto": "5.2.7",
     "@mdi/font": "7.4.47",
+    "@nivo/bar": "^0.99.0",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
     "markdown-it-highlightjs": "^4.2.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "vite-plugin-pages": "^0.33.2",
     "vue": "^3.5.21",
     "vue-router": "4",
