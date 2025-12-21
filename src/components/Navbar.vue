@@ -72,7 +72,6 @@ const logoSrc = import.meta.env.BASE_URL + 'images/icon.png'
 // Navigation items
 const navItems = [
   { label: 'About', to: '/about', icon: 'mdi-information' },
-  { label: 'Blog', to: '/blog', icon: 'mdi-pen' },
   { label: 'Projects', to: '/projects', icon: 'mdi-folder' },
   { label: 'Slides', to: '/slides', icon: 'mdi-rocket' },
   { label: 'Contact', to: '/contact', icon: 'mdi-email' },

@@ -15,8 +15,6 @@
     "@mdi/font": "7.4.47",
     "@nivo/bar": "^0.99.0",
     "@nivo/treemap": "^0.99.0",
-    "highlight.js": "^11.11.1",
-    "markdown-it": "^14.1.0",
     "markdown-it-highlightjs": "^4.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
