@@ -121,6 +121,7 @@
             Skills & Tools
           </h2>
           <div class="chart-wrapper mb-16">
+            <TopicTree />
             <LanguageBar />
           </div>
 
