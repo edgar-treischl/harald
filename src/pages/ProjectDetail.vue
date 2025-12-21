@@ -61,6 +61,7 @@
         >
           <v-btn
             :href="project.link"
+            v-if="project.link"
             target="_blank"
             rel="noopener noreferrer"
             class="project-btn"
