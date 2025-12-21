@@ -15,6 +15,7 @@ declare module 'vue' {
     BlogList: typeof import('./src/components/BlogList.vue')['default']
     BlogPage: typeof import('./src/components/BlogPage.vue')['default']
     CodeBlock: typeof import('./src/components/CodeBlock.vue')['default']
+    CustomProjectPage: typeof import('./src/components/CustomProjectPage.vue')['default']
     Del_BlogCard: typeof import('./src/components/Del_BlogCard.vue')['default']
     Del_BlogList: typeof import('./src/components/Del_BlogList.vue')['default']
     Del_BlogPage: typeof import('./src/components/Del_BlogPage.vue')['default']
@@ -29,6 +30,7 @@ declare module 'vue' {
     ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StandardProjectPage: typeof import('./src/components/StandardProjectPage.vue')['default']
     TopicTree: typeof import('./src/components/TopicTree.vue')['default']
   }
 }

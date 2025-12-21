@@ -1,0 +1,138 @@
+<template>
+  <v-container class="project-detail py-16" max-width="xl">
+    <h1 class="text-h4 font-weight-medium text-center mb-12">
+      {{ project.title }}
+    </h1>
+
+    <div class="project-content">
+      <!-- ROW 1: Image & Text -->
+      <v-row align="center">
+        <v-col cols="12" md="6" class="d-flex justify-center">
+          <div class="image-frame">
+            <v-img
+              :src="projectFullImage"
+              :alt="project.title"
+              class="project-image"
+              contain
+            />
+          </div>
+        </v-col>
+
+        <v-col cols="12" md="6">
+          <div class="content-wrapper">
+            <section class="mb-10">
+              <h2 class="text-subtitle-1 font-weight-medium mb-3">
+                Description
+              </h2>
+              <p class="text-body-2 text-medium-emphasis" v-html="project.description.replace(/\n/g, '<br/>')"></p>
+            </section>
+
+            <section>
+              <h3 class="text-subtitle-1 font-weight-medium mb-3">
+                Keywords
+              </h3>
+              <v-chip-group column>
+                <v-chip v-for="tech in project.technologies" :key="tech" class="tech-chip" label>
+                  {{ tech }}
+                </v-chip>
+              </v-chip-group>
+            </section>
+          </div>
+        </v-col>
+      </v-row>
+
+      <!-- ROW 2: Action Button -->
+      <v-row align="center">
+        <v-col cols="12" md="6" />
+        <v-col cols="12" md="6" class="d-flex justify-center justify-md-start">
+          <v-btn
+            v-if="project.link"
+            :href="project.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-btn"
+            rounded="xl"
+            size="large"
+          >
+            Visit Project →
+          </v-btn>
+        </v-col>
+      </v-row>
+    </div>
+  </v-container>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+// Capture prop correctly
+const { project } = defineProps<{ project: any }>()
+
+// Compute full image path
+const projectFullImage = computed(() => {
+  return project?.image ? import.meta.env.BASE_URL + project.image : ''
+})
+</script>
+
+<style scoped>
+/* same as your previous style */
+.project-detail {
+  background-color: #fafafa;
+}
+.project-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 64px;
+  align-items: stretch;
+}
+.content-wrapper {
+  max-width: 480px;
+}
+.text-medium-emphasis {
+  color: rgba(0, 0, 0, 0.6);
+}
+.tech-chip {
+  margin-bottom: 8px;
+  margin-right: 8px;
+  background-color: #f1f3f5;
+  color: #333;
+  font-weight: 500;
+}
+.project-btn {
+  background-color: #111;
+  color: #fff;
+  text-transform: none;
+  font-weight: 500;
+  padding: 12px 28px;
+}
+.image-frame {
+  width: 100%;
+  max-width: 520px;
+  min-height: 320px;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+@media (max-width: 960px) {
+  .project-content {
+    gap: 32px;
+  }
+  .image-frame {
+    max-width: 100%;
+    min-height: 260px;
+    padding: 20px;
+  }
+  .project-image {
+    max-height: 220px;
+  }
+}
+</style>

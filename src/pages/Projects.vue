@@ -40,10 +40,7 @@
             :class="{ hovered: isHovering }"
             flat
           >
-            <router-link
-              :to="`/projects/${project.id}`"
-              class="card-link"
-            >
+            <router-link :to="`/projects/${project.id}`" class="card-link">
               <!-- Image -->
               <div class="image-wrapper">
                 <v-img
@@ -59,9 +56,23 @@
                 <h3 class="text-subtitle-1 font-weight-medium mb-1">
                   {{ project.title }}
                 </h3>
+
                 <p class="text-body-2 text-medium-emphasis">
-                  {{ project.description.length > 120 ? project.description.slice(0, 120) + '…' : project.description }}
+                  {{
+                    project.description.length > 120
+                      ? project.description.slice(0, 120) + '…'
+                      : project.description
+                  }}
                 </p>
+
+                <!-- Custom layout indicator -->
+                <v-chip
+                  v-if="project.layout === 'custom'"
+                  size="x-small"
+                  class="mt-2"
+                >
+                  Featured
+                </v-chip>
               </v-card-text>
             </router-link>
           </v-card>
@@ -72,34 +83,52 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { projects as rawProjects } from '@/data/projects';
+import { ref, computed } from 'vue'
+import { projects as rawProjects } from '@/data/projects'
 
-// Define additional fields locally, but don't re-export
-const projectList = rawProjects.map((p) => ({
+// Define Project type including optional layout
+interface Project {
+  id: string | number
+  title: string
+  description: string
+  image: string
+  topics: string[]
+  layout: 'standard' | 'custom'
+  fullImage: string
+}
+
+// Map projects and make sure layout exists
+const projectList: Project[] = rawProjects.map(p => ({
   ...p,
+  layout: (p as any).layout || 'standard', // force default if missing
   fullImage: import.meta.env.BASE_URL + p.image,
-}));
+}))
 
-const topics = ref<string[]>(['All', 'R']);
-const activeTopic = ref<string>('All');
+const topics = ref<string[]>(['All', 'R'])
+const activeTopic = ref<string>('All')
 
-// Filtered project list
+// Filter by topic and sort custom projects first
 const filteredProjects = computed(() => {
-  if (activeTopic.value === 'All') return projectList;
-  return projectList.filter((project) => project.topics.includes(activeTopic.value));
-});
+  const list =
+    activeTopic.value === 'All'
+      ? projectList
+      : projectList.filter(project =>
+          project.topics.includes(activeTopic.value)
+        )
+
+  return [...list].sort(
+    (a, b) => Number(b.layout === 'custom') - Number(a.layout === 'custom')
+  )
+})
 </script>
 
 <style scoped>
-/* Header */
 .header {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Topic chips */
 .topic-chip {
   background-color: #f1f3f5;
   color: #333;
@@ -111,7 +140,6 @@ const filteredProjects = computed(() => {
   color: #fff !important;
 }
 
-/* Cards */
 .project-card {
   height: 100%;
   border-radius: 16px;
@@ -133,7 +161,6 @@ const filteredProjects = computed(() => {
   color: inherit;
 }
 
-/* Image */
 .image-wrapper {
   height: 180px;
   display: flex;
@@ -148,7 +175,6 @@ const filteredProjects = computed(() => {
   max-width: 80%;
 }
 
-/* Content */
 .card-content {
   flex-grow: 1;
   padding: 20px;

@@ -7,6 +7,7 @@ export const projects = [
     link: 'https://edgar-treischl.github.io/PracticeR/',
     topics: ['R'],
     technologies: ['R'],
+    layout: 'custom',
   },
   {
     id: 'wirkungsevaluation',
@@ -16,6 +17,7 @@ export const projects = [
     link: 'https://www.beltz.de/',
     topics: [],
     technologies: ['Kausalanalyse', 'Evaluation', 'Forschungsdesigns'],
+    layout: 'standard',
   },
   {
     id: 'titanic',
@@ -25,14 +27,16 @@ export const projects = [
     link: 'https://edgar-treischl.github.io/TitanicApp/',
     topics: ['R', 'Stats'],
     technologies: ['Logistic Regression', 'Evaluation', 'Forschungsdesigns'],
+    layout: 'standard',
   },
     {
     id: 'reportmaster',
     title: 'ReportMaster',
-    description: 'ReportMaster is designed to automatically create dynamic reports for LimeSurvey. The package checks whether a survey has expired, retrieves data through the LimeSurvey API, and combines it with metadata to generate a dynamic report.\n \nThe package is accompanied by the MetaMaster package, which automatically generates metadata for LimeSurvey. Meanwhile, ReportMaster automates the reporting process for the OES. The main functions of ReportMaster are designed to run in a Docker container and be executed as a cron job. This setup enables the package to generate reports for expired surveys.',
+    description: 'ReportMaster is designed to automatically create dynamic reports for Lime Survey. The package checks whether a survey has expired, retrieves data through the LimeSurvey API, and combines it with metadata to generate a dynamic report.\n \nThe package is accompanied by the MetaMaster package, which automatically generates metadata for LimeSurvey. The main functions of ReportMaster are designed to run in a Docker container and be executed as a cron job. This setup enables the package to generate reports for expired surveys. \n \n I created this package when I worked at the ISB Munich. Get in touch with me if you want to know more about it.',
     image: 'images/reportmaster.png', // relative path
     link: '',
     topics: ['R', 'Stats'],
     technologies: ['Automation', 'Lime Survey', 'R'],
+    layout: 'standard',
   },
 ]
