@@ -40,10 +40,18 @@
           </h2>
 
           <p class="text-body-1 mb-6">
-            I am a data scientist and social scientist specializing in
-            evaluation research, survey methodology, and causal inference.
-            My work bridges rigorous quantitative methods with real-world
-            policy and social research applications.
+            I’m a data scientist turning data into practical solutions. 
+            Lately, I’ve focused on building automation, deploying apps, 
+            and creating efficient data workflows, including automated 
+            reporting systems and technical infrastructure improvements 
+            for our team.
+            <br>
+            <br>
+            Before moving fully into applied data science, I spent years 
+            in social science research, earning a PhD and working 
+            on evaluation, causal analysis, and survey research. There, i’ve also 
+            explored a wide range of data science topics, from 
+            data visualization to machine learning and NLP.
           </p>
         </v-col>
       </v-row>

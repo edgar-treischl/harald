@@ -63,8 +63,10 @@
 <script>
 const Icon1 = import.meta.env.BASE_URL + 'images/slides_code.png'
 const Icon2 = import.meta.env.BASE_URL + 'images/slides_git.png'
-const Icon3 = import.meta.env.BASE_URL + 'images/rinp.png'
+const Icon3 = import.meta.env.BASE_URL + 'images/slides_packages.png'
 const Icon4 = import.meta.env.BASE_URL + 'images/ebf_website.png'
+const Icon5 = import.meta.env.BASE_URL + 'images/slides_program.png'
+
 
 
 
@@ -95,8 +97,8 @@ export default {
         },
         {
           id: '3',
-          title: 'R Package Development 2',
-          description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ;Docs with pkgdown ...',
+          title: 'R Package Development',
+          description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ...',
           image: Icon3,
           url: 'https://edgar-treischl.github.io/slidesRPackages/',
           topics: ['Data Science', 'R'],
@@ -108,6 +110,14 @@ export default {
           image: Icon4,
           url: 'https://edgar-treischl.github.io/EBF/',
           topics: [],
+        },
+        {
+          id: '5',
+          title: 'R Programming',
+          description: 'Do not repeat yourself, learn how to programm with R.',
+          image: Icon5,
+          url: 'https://edgar-treischl.github.io/slidesProgramming/#1',
+          topics: ['Data Science', 'R'],
         },
       ],
     }
