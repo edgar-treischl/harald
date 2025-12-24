@@ -19,8 +19,8 @@
           <h1 class="display-2 font-weight-bold mb-3">
             Edgar J. Treischl
           </h1>
-          <h2 class="subtitle-1 font-weight-medium text-uppercase mb-4">
-            Technical Product Lead – Data & Web Platforms
+          <h2 class="subtitle-1 font-weight-medium mb-4">
+            Technical Product Lead - Data & Web Platforms
           </h2>
 
           <!-- Social Links (icon-only, small, white hover) -->

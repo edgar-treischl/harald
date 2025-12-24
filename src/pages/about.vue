@@ -71,18 +71,60 @@
           </h2>
 
           <v-timeline align="start" density="comfortable">
+
+            <v-timeline-item dot-color="grey-darken-2">
+              <strong>Technical Product Lead - Data & Web Platforms</strong><br />
+              <span class="text-caption">
+                ISB Munich · 2025 - Present
+              </span>
+              <v-list density="compact" class="mt-2">
+                <v-list-item
+                  v-for="(item, i) in itemsPL"
+                  :key="i"
+                  prepend-icon="mdi-chevron-right"
+                  lines="multiple"
+                  >
+                <v-list-item-title class="text-wrap">{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-timeline-item>
+
             <v-timeline-item dot-color="grey-darken-2">
               <strong>Data Scientist</strong><br />
               <span class="text-caption">
-                Institution / Organization · Year–Present
+                ISB Munich · 2024 - 2025
               </span>
-              <p class="mt-2">
-                Designing and analyzing evaluation studies, developing survey
-                instruments, and applying causal inference techniques to
-                observational data.
-              </p>
+              <v-list density="compact" class="mt-2">
+                <v-list-item
+                  v-for="(item, i) in items"
+                  :key="i"
+                  prepend-icon="mdi-chevron-right"
+                  lines="multiple"
+                  >
+                <v-list-item-title class="text-wrap">{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
             </v-timeline-item>
+
+            <v-timeline-item dot-color="grey-darken-2">
+              <strong>Post Doctoral Researcher</strong><br />
+              <span class="text-caption">
+                FAU Nuremberg · 2020 - 2023
+              </span>
+              <v-list density="compact" class="mt-2">
+                <v-list-item
+                  v-for="(item, i) in itemsPD"
+                  :key="i"
+                  prepend-icon="mdi-chevron-right"
+                  lines="multiple"
+                  >
+                <v-list-item-title class="text-wrap">{{ item }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-timeline-item>
+
           </v-timeline>
+          
         </v-col>
       </v-row>
 
@@ -132,22 +174,25 @@
 
           <!-- Intro text -->
           <p class="text-body-1 mb-8">
-            My work combines methodological rigor with practical tooling.
-            Below are visual summaries of my core analytical focus areas
-            and the programming environments I use most frequently.
+            To give a transparent overview of my work, I analyzed my repositories 
+            using the GitHub/GitLab API. The data reflects my development activity 
+            in 2025 and is derived from the repos I actually maintain.
+            
           </p>
 
           <!-- TopicTree -->
           <p class="text-body-1 mb-4">
-            Analytical and methodological areas spanning evaluation,
-            causal inference, data workflows, and applied analytics.
+            The following treemap groups repositories by topic and visualizes their relative 
+            size and focus areas. This makes it easy to see how my projects are 
+            structured across themes such as web development, DevOps, and other topics.
           </p>
           <TopicTree class="mb-16" />
 
           <!-- LanguageBar -->
           <p class="text-body-1 mb-4">
-            Programming languages and tools used for reproducible research,
-            automation, and deployment.
+            The next bar chart shows the distribution of programming languages by 
+            percentage. It illustrates which languages I primarily work with 
+            and how my development time is spread across different technologies.
           </p>
           <LanguageBar />
         </v-col>
@@ -190,6 +235,28 @@
 </template>
 
 <script setup>
+const items = [
+  'Development of a dynamic, automated reporting system for evaluations in Bavaria',
+  'Established a fully automated development, testing, and deployment infrastructure',
+  'Designed and implemented a validation strategy to ensure long-term data quality and reproducibility'
+]
+
+
+
+const itemsPD = [
+  'Developing survey experiments to study the acceptance of AI-based applications',
+  'Webmaster and IT coordinator for the chair, responsible for website maintenance and technical infrastructure'
+]
+
+const itemsPL = [
+  'Defined the architecture and strategic direction for a modular, scalable ecosystem to deploy interactive data applications, ensuring a clear separation between application development and platform operations',
+  'Oversaw the technical concept and implementation strategy for secure, enterprise-ready deployment using Docker, Kubernetes, and micro-frontend integration, in close collaboration with internal and external stakeholders',
+  'Built and led a cross-functional dashboarding team across Data Science, Web Development, IT/DevOps, and Organizational Development to deliver high-impact data applications'
+]
+
+
+
+
 const avatarImage = import.meta.env.BASE_URL + 'images/avatar.png'
 const cvUrl = `${import.meta.env.BASE_URL}CV_Treischl.pdf`
 

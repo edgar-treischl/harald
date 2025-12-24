@@ -1,6 +1,6 @@
 <template>
   <div class="language-bar-wrapper">
-    <h3 class="chart-title">Used language 2025 (via GitLab/GitHub API)</h3>
+    <h3 class="chart-title">Language used in 2025 (According to Git)</h3>
     <div ref="chart" class="language-bar"></div>
   </div>
 </template>
@@ -97,7 +97,7 @@ onMounted(async () => {
 
 <style scoped>
 .language-bar {
-  height: 120px; /* single bar */
+  height: 160px; /* single bar */
   width: 100%;
   min-width: 0;
 }
