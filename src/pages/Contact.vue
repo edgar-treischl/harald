@@ -19,8 +19,9 @@
             Contact Form
           </h3>
 
-          <v-form ref="contactForm" @submit.prevent="submitForm">
+          <v-form ref="contactForm" @submit.prevent="submitForm" v-model="valid">
 
+            <!-- Name -->
             <v-text-field
               v-model="form.name"
               name="name"
@@ -28,9 +29,10 @@
               placeholder="Your full name"
               variant="outlined"
               class="mb-4"
-              required
+              :rules="[rules.required]"
             />
 
+            <!-- Email -->
             <v-text-field
               v-model="form.email"
               name="email"
@@ -39,9 +41,10 @@
               placeholder="you@example.com"
               variant="outlined"
               class="mb-4"
-              required
+              :rules="[rules.required, rules.email]"
             />
 
+            <!-- Message -->
             <v-textarea
               v-model="form.message"
               name="message"
@@ -50,7 +53,7 @@
               variant="outlined"
               rows="4"
               class="mb-6"
-              required
+              :rules="[rules.required]"
             />
 
             <v-btn type="submit" color="primary" block>
@@ -95,9 +98,22 @@ const form = ref({
 })
 
 const status = ref('') // '', 'success', 'error'
+const valid = ref(false)
+
+// Simple validation rules
+const rules = {
+  required: value => !!value || 'This field is required.',
+  email: value => value.includes('@') || 'Please enter a valid email.'
+}
 
 const submitForm = async () => {
-  status.value = ''
+  // Check if form is valid
+  const formRef = ref(null)
+  if (!valid.value) {
+    status.value = ''
+    return
+  }
+
   try {
     const res = await fetch('https://formspree.io/f/mbjeabyy', {
       method: 'POST',
@@ -117,6 +133,7 @@ const submitForm = async () => {
   }
 }
 </script>
+
 
 <style scoped>
 .v-card {
