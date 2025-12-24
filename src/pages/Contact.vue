@@ -19,7 +19,13 @@
             Contact Form
           </h3>
 
-          <v-form ref="contactForm" @submit.prevent="submitForm" v-model="valid">
+          <!-- Bind key to force re-render and fully reset validation -->
+          <v-form
+            :key="formKey"
+            ref="contactForm"
+            @submit.prevent="submitForm"
+            v-model="valid"
+          >
 
             <!-- Name -->
             <v-text-field
@@ -91,14 +97,21 @@
 <script setup>
 import { ref } from 'vue'
 
+// Form data
 const form = ref({
   name: '',
   email: '',
   message: ''
 })
 
-const status = ref('') // '', 'success', 'error'
+// Form status: '', 'success', 'error'
+const status = ref('')
+
+// Form validity
 const valid = ref(false)
+
+// Form key to force re-render after submission
+const formKey = ref(0)
 
 // Simple validation rules
 const rules = {
@@ -106,33 +119,46 @@ const rules = {
   email: value => value.includes('@') || 'Please enter a valid email.'
 }
 
+// Submit handler
 const submitForm = async () => {
-  // Check if form is valid
-  const formRef = ref(null)
+  // Prevent submission if invalid
   if (!valid.value) {
     status.value = ''
     return
   }
 
   try {
+    // Send form data to Formspree
     const res = await fetch('https://formspree.io/f/mbjeabyy', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form.value)
     })
+
     if (res.ok) {
       status.value = 'success'
-      form.value.name = ''
-      form.value.email = ''
-      form.value.message = ''
+
+      // Reset form fields
+      form.value = { name: '', email: '', message: '' }
+
+      // Force re-render of the form to fully clear validation
+      formKey.value += 1
+
+      valid.value = false
+
     } else {
       status.value = 'error'
     }
+
   } catch (e) {
     status.value = 'error'
   }
 }
 </script>
+
+
+
+
 
 
 <style scoped>
