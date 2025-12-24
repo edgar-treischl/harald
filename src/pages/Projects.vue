@@ -2,7 +2,7 @@
   <v-container class="py-12" max-width="xl">
     <!-- Header -->
     <div class="header mb-10">
-      <h2 class="text-h4 font-weight-medium">
+      <h2 class="header text-h4 font-weight-medium">
         Project Portfolio
       </h2>
 
@@ -171,7 +171,9 @@ const filteredProjects = computed<Project[]>(() => {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font-family: 'DM Serif Display', serif;
 }
+
 
 .topic-chip {
   background-color: #f1f3f5;

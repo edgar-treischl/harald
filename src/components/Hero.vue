@@ -16,7 +16,7 @@
 
         <!-- Text Column (Right) -->
         <v-col cols="12" md="7" class="text-center text-md-left">
-          <h1 class="display-2 font-weight-bold mb-3">
+          <h1 class="title-1 font-weight-medium display-2 mb-3">
             Edgar J. Treischl
           </h1>
           <h2 class="subtitle-1 font-weight-medium mb-4">
@@ -80,6 +80,10 @@ const socialLinks = [
 
 .subtitle-1 {
   font-size: 1.5rem;
+}
+
+.title-1 {
+  font-family: 'DM Serif Display', serif;
 }
 
 .body-1 {

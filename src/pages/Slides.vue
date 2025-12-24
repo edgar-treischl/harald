@@ -1,5 +1,8 @@
 <template>
   <v-container class="py-12" max-width="lg">
+      <h2 class="header text-h4 font-weight-medium">
+        Slides, Talks, and Workshops
+      </h2>
     <v-row>
       <!-- Sidebar -->
       <v-col cols="12" sm="4" class="pr-sm-4">
@@ -172,6 +175,7 @@ function selectSlide(project: Slide) {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* ---------------- Responsive ---------------- */

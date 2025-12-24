@@ -4,7 +4,7 @@
 
       <!-- Left Column: Minimal Text -->
       <v-col cols="12" md="4" class="mb-10 mb-md-0">
-        <h2 class="text-h4 font-weight-bold mb-4">
+        <h2 class="header text-h3 font-weight-medium mb-4">
           Get in Touch
         </h2>
         <p class="text-body-1 text-medium-emphasis">
@@ -164,6 +164,10 @@ const submitForm = async () => {
 <style scoped>
 .v-card {
   background-color: #fff;
+}
+
+.header {
+  font-family: 'DM Serif Display', serif;
 }
 </style>
 
