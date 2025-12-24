@@ -13,7 +13,7 @@ export const projects = [
     description: 'Write clear code, write modular code, and develop with style ...',
     image: Icon1,
     url: 'https://edgar-treischl.github.io/slidesCode/',
-    topics: ['Data Science'],
+    topics: [],
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ export const projects = [
     description: 'Whether you’re a beginner looking for guidance or simply in need of teaching material, my slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
     image: Icon2,
     url: 'https://edgar-treischl.github.io/slidesGit/',
-    topics: ['Data Science'],
+    topics: ['A Gentle Introduction'],
   },
   {
     id: '3',
@@ -29,7 +29,7 @@ export const projects = [
     description: 'Turn your R scripts into reliable, maintainable, shareable tools. In this hands-on workshop, you’ll learn: R packages with usethis & devtools; Testing with testthat ...',
     image: Icon3,
     url: 'https://edgar-treischl.github.io/slidesRPackages/',
-    topics: ['Data Science', 'R'],
+    topics: [],
   },
   {
     id: '4',
@@ -45,6 +45,6 @@ export const projects = [
     description: 'Do not repeat yourself, learn how to programm with R.',
     image: Icon5,
     url: 'https://edgar-treischl.github.io/slidesProgramming/#1',
-    topics: ['Data Science', 'R'],
+    topics: [],
   },
 ]
