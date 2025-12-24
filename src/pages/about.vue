@@ -139,25 +139,35 @@
 
           <v-card variant="outlined" class="mb-4">
             <v-card-text>
-              <strong>Treischl, E. J.</strong> (Year).
-              <em>Title of publication</em>.
-              Journal Name.
+              <strong>Treischl, E. J.</strong> (2023).
+              <em>Practice R: An interactive textbook</em>.
+              Walter de Gruyter GmbH.
               <v-btn
                 variant="text"
                 size="small"
-                href="https://scholar.google.com"
+                href="https://books.google.de/books?hl=en&lr=&id=Oc25EAAAQBAJ&oi=fnd&pg=PP7&ots=SDUnUwtBRe&sig=6bxV5LQxkWvBy_v5DTdzM83xYgA&redir_esc=y#v=onepage&q&f=false"
                 target="_blank"
                 class="ml-2"
               >
-                Google Scholar
+                Google Books
               </v-btn>
             </v-card-text>
           </v-card>
 
           <v-card variant="outlined">
             <v-card-text>
-              <strong>Applied Data Science Project</strong><br />
-              Survey-based evaluation and reproducible reporting workflow using R.
+              <strong>Treischl, E. / Wolbring, T.</strong> (2020).
+              <em>Wirkungsevaluation</em>.
+              Grundlagen, Standards, Beispiele. Beltz Juventa.
+            <v-btn
+                variant="text"
+                size="small"
+                href="https://www.bic-media.com/widget/?isbn=9783442481149"
+                target="_blank"
+                class="ml-2"
+              >
+                Preview
+              </v-btn>
             </v-card-text>
           </v-card>
         </v-col>
@@ -177,17 +187,7 @@
             To give a transparent overview of my work, I analyzed my repositories 
             using the GitHub/GitLab API. The data reflects my development activity 
             in 2025 and is derived from the repos I actually maintain.
-            
           </p>
-
-          <!-- TopicTree -->
-          <p class="text-body-1 mb-4">
-            The following treemap groups repositories by topic and visualizes their relative 
-            size and focus areas. This makes it easy to see how my projects are 
-            structured across themes such as web development, DevOps, and other topics.
-          </p>
-          <TopicTree class="mb-16" />
-
           <!-- LanguageBar -->
           <p class="text-body-1 mb-4">
             The next bar chart shows the distribution of programming languages by 
@@ -195,6 +195,14 @@
             and how my development time is spread across different technologies.
           </p>
           <LanguageBar />
+
+          <!-- TopicTree -->
+          <p class="text-body-1 mb-4">
+            The following treemap groups repositories by topic and visualizes their relative 
+            size and focus areas. This makes it easy to see how my projects are 
+            structured across themes such as web development, DevOps, and other topics.
+          </p>
+          <TopicTree class="mb-10" />
         </v-col>
       </v-row>
 
