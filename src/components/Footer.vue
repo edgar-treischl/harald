@@ -85,7 +85,7 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  { icon: 'mdi-github', url: 'https://github.com/edgar-treischl', label: 'GitHub' },
+  { icon: 'mdi-github', url: 'https://github.com/edgar-treischl/harald', label: 'GitHub' },
   { icon: 'mdi-google', url: 'https://scholar.google.com/citations?user=hOhulnUAAAAJ&hl=en', label: 'Google Scholar' },
   { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/dr-edgar-treischl-b681791b2/?originalSubdomain=de', label: 'LinkedIn' },
   { icon: 'mdi-file-pdf-box', url: `${import.meta.env.BASE_URL}CV_Treischl.pdf`, label: 'CV PDF' }

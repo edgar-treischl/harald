@@ -86,7 +86,20 @@
 import { ref, computed } from 'vue'
 import { projects as rawProjects } from '@/data/projects'
 
+/* ----------------------------------
+ * Types
+ * ---------------------------------- */
+
 type Layout = 'standard' | 'custom'
+
+type RawProject = {
+  id: string | number
+  title: string
+  description: string
+  image: string
+  topics: string[]
+  layout?: Layout
+}
 
 interface Project {
   id: string | number
@@ -98,31 +111,47 @@ interface Project {
   fullImage: string
 }
 
-/**
- * Normalize incoming data (no `any`)
- */
-const projectList: Project[] = rawProjects.map((p) => ({
+/* ----------------------------------
+ * Normalize incoming data
+ * ---------------------------------- */
+
+const projectList: Project[] = (rawProjects as RawProject[]).map(p => ({
   ...p,
   layout: p.layout ?? 'standard',
   fullImage: import.meta.env.BASE_URL + p.image,
 }))
 
+/* ----------------------------------
+ * State
+ * ---------------------------------- */
+
 const topics = ref<string[]>(['All', 'R'])
 const activeTopic = ref<string>('All')
 
-/**
- * Fisher–Yates shuffle (unbiased random order)
- */
-function shuffle<T>(array: T[]): T[] {
-  const result = [...array]
+/* ----------------------------------
+ * Utilities
+ * ---------------------------------- */
+
+// Fisher–Yates shuffle (vue-tsc safe)
+function shuffle<T>(array: readonly T[]): T[] {
+  const result = array.slice()
+
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[result[i], result[j]] = [result[j], result[i]]
+
+    const temp = result[i]!
+    result[i] = result[j]!
+    result[j] = temp
   }
+
   return result
 }
 
-const filteredProjects = computed(() => {
+/* ----------------------------------
+ * Computed
+ * ---------------------------------- */
+
+const filteredProjects = computed<Project[]>(() => {
   const filtered =
     activeTopic.value === 'All'
       ? projectList
@@ -133,6 +162,8 @@ const filteredProjects = computed(() => {
   return shuffle(filtered)
 })
 </script>
+
+
 
 
 <style scoped>
