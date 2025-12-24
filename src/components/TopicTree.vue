@@ -1,6 +1,6 @@
 <template>
   <div class="tree-map-wrapper">
-    <h3 class="chart-title">Repositories per Topic (Top 12 + Others)</h3>
+    <h3 class="chart-title">Repositories by Topic</h3>
     <div ref="chart" class="tree-map"></div>
   </div>
 </template>

@@ -4,7 +4,7 @@ export const projects = [
     title: 'Practice R: An Interactive Textbook',
     description: 'Many students learn to analyze data using commercial packages, even though there is an open-source software with cutting-edge possibilities: R, a programming language with countless cool features for applied empirical research.\n \nPractice R introduces R to social science students, inspiring them to consider R as an excellent choice. In a non-technical pragmatic way, this book covers all typical steps of applied empirical research. Learn how to prepare, analyze, and visualize data in R. Discover how to collect data, generate reports, or automate error-prone tasks.\n \nThe book is accompanied by an R package. This provides further learning materials that include interactive tutorials, challenging you with typical problems of applied research. This way, you can immediately practice the knowledge you have learned. The package also includes the source code of each chapter and templates that help to create reports. Practice R has social science students in mind, nonetheless a broader audience may use Practice R to become a proficient R user.',
     image: 'images/practice_r.jpeg', // just relative path
-    link: 'https://edgar-treischl.github.io/PracticeR/',
+    link: 'https://www.degruyterbrill.com/document/doi/10.1515/9783110704976/html?lang=de&srsltid=AfmBOorEMW5k4lNGeCnhjOKnydWI6ExZ5n4mOctYD9Yg9TdtCZQUBPeN',
     topics: ['R'],
     technologies: ['R'],
     layout: 'custom',
@@ -14,10 +14,10 @@ export const projects = [
     title: 'Wirkungsevaluation',
     description: 'Evaluationen werden häufig durchgeführt, um die kausalen Wirkungen einer Maßnahme zu identifizieren. Das Lehrbuch führt in die entsprechenden theoretischen und methodischen Grundlagen der Wirkungsevaluation ein und illustriert diese anhand ausgewählter Beispiele.\n \nZiel des Buches ist es dabei, einen praktischen Bezug zum Ablauf einer Evaluation und den einzelnen Entscheidungsschritten herzustellen, aber auch mögliche Fallstricke unterschiedlicher Evaluationsverfahren aufzuzeigen. Eine Lektüre ist daher sowohl für Evaluationsforschende als auch für Stakeholder wie Auftraggebende, Evaluierte und Entscheidungsträger ertragreich.',
     image: 'images/wirkungsevaluation.png', // relative path
-    link: 'https://www.beltz.de/',
+    link: 'https://www.beltz.de/fachmedien/soziologie/produkte/details/42792-wirkungsevaluation.html',
     topics: [],
     technologies: ['Kausalanalyse', 'Evaluation', 'Forschungsdesigns'],
-    layout: 'standard',
+    layout: 'custom',
   },
   {
     id: 'titanic',

@@ -1,7 +1,7 @@
 <template>
   <v-container class="custom-project py-16" max-width="xl">
     <h1 class="text-h3 font-weight-bold text-center mb-8">
-      {{ project.title }} (Custom)
+      {{ project.title }}
     </h1>
 
     <p class="text-body-1 text-center mb-8" v-html="project.description.replace(/\n/g, '<br/>')"></p>
@@ -10,7 +10,8 @@
       <v-img
         :src="projectFullImage"
         :alt="project.title"
-        max-width="600"
+        max-width="520"
+        class="elevation-3 rounded-lg"
         contain
       />
     </div>
@@ -21,11 +22,11 @@
         :href="project.link"
         target="_blank"
         rel="noopener noreferrer"
-        color="primary"
+        color="tertiary"
         rounded="xl"
         size="large"
       >
-        Visit Project →
+        Read the Book →
       </v-btn>
     </div>
   </v-container>
@@ -48,6 +49,14 @@ const projectFullImage = computed(() => {
   background-color: #f9f9f9;
   text-align: center;
 }
+
+.custom-project p {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
 
 .images {
   margin: 2rem 0;
