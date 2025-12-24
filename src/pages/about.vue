@@ -162,7 +162,7 @@
             <v-btn
                 variant="text"
                 size="small"
-                href="https://www.bic-media.com/widget/?isbn=9783442481149"
+                href="https://www.bic-media.com/widget/?isbn=9783779939245"
                 target="_blank"
                 class="ml-2"
               >

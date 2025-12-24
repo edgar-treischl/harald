@@ -43,5 +43,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  base: '/harald/', // Set base URL for GitHub Pages (adjust this if the repo name changes)
+  //base: '/harald/', // Set base URL for GitHub Pages (adjust this if the repo name changes)
 })
