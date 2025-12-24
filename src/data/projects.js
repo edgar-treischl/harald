@@ -1,4 +1,24 @@
 export const projects = [
+    {
+    id: 'spe3ctr',
+    title: 'sp3ctr',
+    description: 'The sp3ctr package is part of the Trigger Validation Framework, a modular system for running, tracking, and managing data validation workflows.\n \nsp3ctr is the undercover agency of your data preparation and validation pipeline. It launches the appropriate validation pipeline whenever changes are detected and it creates pointer files to monitor tables. Validation pipelines, reports, and pointer data create a rich meta data for a complete audit trail. Whether automatically or manually triggered, sp3ctr ensures all important steps will be tracked, supporting a robust, traceable, and reproducible workflow. \n I created this package when I worked at the ISB Munich. Get in touch with me if you want to know more about it.',
+    image: 'images/spectr.png', // relative path
+    link: '',
+    topics: ['R'],
+    technologies: ['Validation', 'Automation', 'R'],
+    layout: 'standard',
+  },
+    {
+    id: 'configr-cli',
+    title: 'configr',
+    description: 'configr-cli is a command-line interface designed to fetch configuration files from configr via shell. It connects to the GitLab API to retrieve the latest version of a file, allowing users to inspect, copy, or replace local versions with ease. \n I created this package when I worked at the ISB Munich. Get in touch with me if you want to know more about it.',
+    image: 'images/configr.png', // relative path
+    link: '',
+    topics: ['Python'],
+    technologies: ['Validation', 'Automation', 'R'],
+    layout: 'standard',
+  },
   {
     id: 'practicer',
     title: 'Practice R: An Interactive Textbook',
@@ -25,7 +45,7 @@ export const projects = [
     description: 'The shiny app introduces the basics of a logistic regression and examines who survived the Titanic accident. It outlines the logic of a logistic regression, it underlines what a odds ratio measures, and it discusses the performance of such models.',
     image: 'images/titanic.png', // relative path
     link: 'https://edgar-treischl.github.io/TitanicApp/',
-    topics: ['R', 'Stats'],
+    topics: ['R'],
     technologies: ['Logistic Regression', 'Evaluation', 'Forschungsdesigns'],
     layout: 'standard',
   },
@@ -35,7 +55,7 @@ export const projects = [
     description: 'ReportMaster is designed to automatically create dynamic reports for Lime Survey. The package checks whether a survey has expired, retrieves data through the LimeSurvey API, and combines it with metadata to generate a dynamic report.\n \nThe package is accompanied by the MetaMaster package, which automatically generates metadata for LimeSurvey. The main functions of ReportMaster are designed to run in a Docker container and be executed as a cron job. This setup enables the package to generate reports for expired surveys. \n \n I created this package when I worked at the ISB Munich. Get in touch with me if you want to know more about it.',
     image: 'images/reportmaster.png', // relative path
     link: '',
-    topics: ['R', 'Stats'],
+    topics: ['R'],
     technologies: ['Automation', 'Lime Survey', 'R'],
     layout: 'standard',
   },

@@ -86,41 +86,54 @@
 import { ref, computed } from 'vue'
 import { projects as rawProjects } from '@/data/projects'
 
-// Define Project type including optional layout
+type Layout = 'standard' | 'custom'
+
 interface Project {
   id: string | number
   title: string
   description: string
   image: string
   topics: string[]
-  layout: 'standard' | 'custom'
+  layout: Layout
   fullImage: string
 }
 
-// Map projects and make sure layout exists
-const projectList: Project[] = rawProjects.map(p => ({
+/**
+ * Normalize incoming data (no `any`)
+ */
+const projectList: Project[] = rawProjects.map((p) => ({
   ...p,
-  layout: (p as any).layout || 'standard', // force default if missing
+  layout: p.layout ?? 'standard',
   fullImage: import.meta.env.BASE_URL + p.image,
 }))
 
 const topics = ref<string[]>(['All', 'R'])
 const activeTopic = ref<string>('All')
 
-// Filter by topic and sort custom projects first
+/**
+ * Fisher–Yates shuffle (unbiased random order)
+ */
+function shuffle<T>(array: T[]): T[] {
+  const result = [...array]
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[result[i], result[j]] = [result[j], result[i]]
+  }
+  return result
+}
+
 const filteredProjects = computed(() => {
-  const list =
+  const filtered =
     activeTopic.value === 'All'
       ? projectList
       : projectList.filter(project =>
           project.topics.includes(activeTopic.value)
         )
 
-  return [...list].sort(
-    (a, b) => Number(b.layout === 'custom') - Number(a.layout === 'custom')
-  )
+  return shuffle(filtered)
 })
 </script>
+
 
 <style scoped>
 .header {

@@ -10,7 +10,7 @@ export const projects = [
   {
     id: '1',
     title: 'Code Quality and Style',
-    description: 'Write clear code, write modular code, and develop with style ...',
+    description: 'Write clear, modular code, and develop with style. The slides summarize main concepts and common pitfalls when ...',
     image: Icon1,
     url: 'https://edgar-treischl.github.io/slidesCode/',
     topics: [],
@@ -18,7 +18,7 @@ export const projects = [
   {
     id: '2',
     title: 'Git(Hub)',
-    description: 'Whether you’re a beginner looking for guidance or simply in need of teaching material, my slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
+    description: 'The slides provide a step-by-step guide to working with Git, GitHub, and version control basics ...',
     image: Icon2,
     url: 'https://edgar-treischl.github.io/slidesGit/',
     topics: ['A Gentle Introduction'],
@@ -34,7 +34,7 @@ export const projects = [
   {
     id: '4',
     title: 'EBF Slides',
-    description: 'I held my lecture “educational empirical research” several times online, inspect all materials on the corresponding website.',
+    description: 'I held my lecture “educational empirical research” several times online, inspect the materials on the lecture website.',
     image: Icon4,
     url: 'https://edgar-treischl.github.io/EBF/',
     topics: [],
@@ -42,7 +42,7 @@ export const projects = [
   {
     id: '5',
     title: 'R Programming',
-    description: 'Do not repeat yourself, learn how to programm with R.',
+    description: 'Do not repeat yourself, learn how to programm with R. The slides introduces to main concepts ...',
     image: Icon5,
     url: 'https://edgar-treischl.github.io/slidesProgramming/#1',
     topics: [],

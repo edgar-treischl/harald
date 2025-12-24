@@ -8,7 +8,7 @@
           Get in Touch
         </h2>
         <p class="text-body-1 text-medium-emphasis">
-          We'd love to hear from you. Fill out the form and we'll get back to you.
+          I'd love to hear from you. Fill out the form and I'll get back to you.
         </p>
       </v-col>
 
@@ -16,7 +16,7 @@
       <v-col cols="12" md="8">
         <v-card class="pa-8 elevation-8 rounded-lg">
           <h3 class="text-h6 font-weight-medium mb-6">
-            Contact Form
+            Leave me a Message
           </h3>
 
           <!-- Bind key to force re-render and fully reset validation -->
