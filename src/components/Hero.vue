@@ -20,7 +20,7 @@
             Edgar J. Treischl
           </h1>
           <h2 class="subtitle-1 font-weight-medium text-uppercase mb-4">
-            Data Scientist
+            Technical Product Lead – Data & Web Platforms
           </h2>
 
           <!-- Social Links (icon-only, small, white hover) -->
@@ -41,9 +41,7 @@
 
           <!-- Description -->
           <p class="body-1 text-subtitle-2 mb-6">
-            I am a social scientist focused on evaluation, survey research, and causality.
-            As an R enthusiast, I also delve into topics like data visualization, NLP, and machine learning. 
-            In my spare time, I enjoy jogging, swimming, and biking.
+            Applied data scientist turning insights into impact: leading platform development, web apps, and automated data workflows.
           </p>
 
           <!-- Action Link -->

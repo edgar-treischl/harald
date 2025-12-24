@@ -40,17 +40,23 @@
           </h2>
 
           <p class="text-body-1 mb-6">
-            I’m a data scientist turning data into practical solutions. 
-            Lately, I’ve focused on building automation, deploying apps, 
-            and creating efficient data workflows, including automated 
-            reporting systems and technical infrastructure improvements 
-            for our team.
+            I’m a data scientist transforming complex data into practical, 
+            actionable solutions. I currently lead a small cross-functional 
+            team in building dashboards, deploying apps, automating workflows, 
+            and improving technical infrastructure—helping teams access the 
+            right insights at the right time.
             <br><br>
-            Before moving fully into applied data science, I spent years 
-            in social science research, earning a PhD and working 
-            on evaluation, causal analysis, and survey research. There, I’ve also 
-            explored a wide range of data science topics, from 
-            data visualization to machine learning and NLP.
+            Before moving fully into applied data science, I earned a PhD in 
+            social science and spent several years conducting research in evaluation, 
+            causal analysis, and survey methods. During this time, I explored a broad 
+            range of data science topics—from visualization and machine learning 
+            to NLP—laying the foundation for my current work bridging research, 
+            engineering, and product.
+            <br><br>
+            I’m passionate about designing systems that turn data into impact, 
+            combining technical expertise, product strategy, and leadership to 
+            deliver real-world solutions.
+            
           </p>
         </v-col>
       </v-row>
