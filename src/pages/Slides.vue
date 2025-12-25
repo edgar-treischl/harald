@@ -68,8 +68,10 @@ interface Slide {
   topics: string[]
 }
 
-// Projects data
-const projects: Slide[] = rawProjects
+// Projects data (sorted A → Z by title)
+const projects: Slide[] = [...rawProjects].sort((a, b) =>
+  a.title.localeCompare(b.title, undefined, { sensitivity: 'base' })
+)
 
 // Currently selected slide (always initialized to first)
 const currentSlide = ref<Slide>(projects[0]!)
@@ -80,6 +82,7 @@ function selectSlide(project: Slide) {
   currentSlide.value = project
 }
 </script>
+
 
 <style scoped>
 /* ---------------- Sidebar ---------------- */

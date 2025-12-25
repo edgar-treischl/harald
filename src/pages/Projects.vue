@@ -82,6 +82,7 @@
   </v-container>
 </template>
 
+
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { projects as rawProjects } from '@/data/projects'
@@ -92,7 +93,7 @@ import { projects as rawProjects } from '@/data/projects'
 
 type Layout = 'standard' | 'custom'
 
-type RawProject = {
+interface RawProject {
   id: string | number
   title: string
   description: string
@@ -101,25 +102,24 @@ type RawProject = {
   layout?: Layout
 }
 
-interface Project {
-  id: string | number
-  title: string
-  description: string
-  image: string
-  topics: string[]
+interface Project extends RawProject {
   layout: Layout
   fullImage: string
 }
 
 /* ----------------------------------
- * Normalize incoming data
+ * Prepare data (sort → normalize)
  * ---------------------------------- */
 
-const projectList: Project[] = (rawProjects as RawProject[]).map(p => ({
-  ...p,
-  layout: p.layout ?? 'standard',
-  fullImage: import.meta.env.BASE_URL + p.image,
-}))
+const projects: Project[] = [...(rawProjects as RawProject[])]
+  .sort((a, b) =>
+    a.title.localeCompare(b.title, 'en', { sensitivity: 'base' })
+  )
+  .map(project => ({
+    ...project,
+    layout: project.layout ?? 'standard',
+    fullImage: import.meta.env.BASE_URL + project.image,
+  }))
 
 /* ----------------------------------
  * State
@@ -129,39 +129,18 @@ const topics = ref<string[]>(['All', 'R'])
 const activeTopic = ref<string>('All')
 
 /* ----------------------------------
- * Utilities
- * ---------------------------------- */
-
-// Fisher–Yates shuffle (vue-tsc safe)
-function shuffle<T>(array: readonly T[]): T[] {
-  const result = array.slice()
-
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-
-    const temp = result[i]!
-    result[i] = result[j]!
-    result[j] = temp
-  }
-
-  return result
-}
-
-/* ----------------------------------
  * Computed
  * ---------------------------------- */
 
-const filteredProjects = computed<Project[]>(() => {
-  const filtered =
-    activeTopic.value === 'All'
-      ? projectList
-      : projectList.filter(project =>
-          project.topics.includes(activeTopic.value)
-        )
-
-  return shuffle(filtered)
-})
+const filteredProjects = computed<Project[]>(() =>
+  activeTopic.value === 'All'
+    ? projects
+    : projects.filter(project =>
+        project.topics.includes(activeTopic.value)
+      )
+)
 </script>
+
 
 
 
