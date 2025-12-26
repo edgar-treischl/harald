@@ -12,6 +12,7 @@
     "update-sitemap": "node scripts/update-sitemap.js"
   },
   "dependencies": {
+    "@fontsource/dm-serif-display": "^5.2.8",
     "@fontsource/roboto": "5.2.7",
     "@mdi/font": "7.4.47",
     "@nivo/bar": "^0.99.0",

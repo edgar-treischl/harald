@@ -3,7 +3,7 @@ import Vue from '@vitejs/plugin-vue'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import Components from 'unplugin-vue-components/vite'
 import Fonts from 'unplugin-fonts/vite'
-import Pages from 'vite-plugin-pages'  // Import the plugin
+import Pages from 'vite-plugin-pages'
 
 import { fileURLToPath, URL } from 'node:url'
 
@@ -19,15 +19,21 @@ export default defineConfig({
         families: [
           {
             name: 'Roboto',
-            weights: [100, 300, 400, 500, 700, 900],
-            styles: ['normal', 'italic'],
+            weights: [400, 500],      // only the weights Vuetify uses
+            styles: ['normal'],       // no italic
+            subset: 'latin',          // only Latin characters
+          },
+          {
+            name: 'DM Serif Display',
+            weights: [400],           // header font
+            styles: ['normal'],
+            subset: 'latin',
           },
         ],
       },
     }),
-    // Enable vite-plugin-pages here
     Pages({
-      extensions: ['vue'], // Only .vue files
+      extensions: ['vue'], // only .vue pages
     }),
   ],
   optimizeDeps: {
@@ -43,5 +49,4 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  //base: '/harald/', // Set base URL for GitHub Pages (adjust this if the repo name changes)
 })
