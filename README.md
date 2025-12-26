@@ -48,14 +48,55 @@ yarn type-check
 public/   # Images, static assets
 src/
 ├─ components/        # Reusable Vue components
+├─ composables/       # Vue composables (e.g., useSeo)
+├─ config/            # Configuration files (e.g., SEO constants)
 ├─ data/
 │  └─ projects.ts     # Project data
 ├─ pages/
 │  ├─ Projects.vue    # Projects listing
 │  └─ ...
 ├─ plugins/           # Vuetify / app plugins
-├─ router/            # Router
-├─ plugins/           # Vuetify / app plugins
+├─ router/            # Router with SEO meta tags
 └─ main.ts            # App entry point
+```
+
+## 🔍 SEO Optimization
+
+This website includes comprehensive SEO optimization to improve search engine visibility:
+
+### Features Implemented
+
+1. **Meta Tags**: Complete set of meta tags including title, description, keywords, author, and robots directives
+2. **Open Graph Tags**: Social media sharing optimization for Facebook, LinkedIn, and other platforms
+3. **Twitter Cards**: Optimized Twitter sharing with large image cards
+4. **Structured Data**: Schema.org JSON-LD markup for Person type
+5. **Sitemap**: XML sitemap at `/sitemap.xml` listing all pages
+6. **Robots.txt**: Search engine crawling directives at `/robots.txt`
+7. **Dynamic Meta Tags**: Automatic meta tag updates on route changes
+8. **Canonical URLs**: Prevents duplicate content issues
+
+### Configuration
+
+SEO constants are centralized in `src/config/seo.ts`:
+- Site URL
+- Default title, description, and keywords
+- Author information
+
+### Per-Route Meta Tags
+
+Each route in `src/router/index.ts` includes custom meta information that automatically updates when navigating between pages.
+
+### Advanced Usage
+
+For custom SEO on specific pages, use the `useSeo` composable:
+
+```typescript
+import { useSeo } from '@/composables/useSeo'
+
+useSeo({
+  title: 'Custom Page Title',
+  description: 'Custom page description',
+  keywords: 'custom, keywords'
+})
 ```
 
