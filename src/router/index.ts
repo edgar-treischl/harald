@@ -11,6 +11,10 @@ import Contact from '@/pages/Contact.vue'
 import Slides from '@/pages/Slides.vue'
 import License from '@/pages/License.vue'
 
+// SEO Constants
+const SITE_URL = 'https://edgar-treischl.de'
+const DEFAULT_TITLE = 'Edgar Treischl - Data Scientist & Technical Product Lead'
+
 const routes = [
   { 
     path: '/', 
@@ -103,7 +107,7 @@ const router = createRouter({
 // Update meta tags on route change
 router.afterEach((to) => {
   // Update document title
-  const title = to.meta.title as string || 'Edgar Treischl - Data Scientist & Technical Product Lead'
+  const title = to.meta.title as string || DEFAULT_TITLE
   document.title = title
 
   // Update meta description
@@ -137,23 +141,23 @@ router.afterEach((to) => {
 
   const ogUrl = document.querySelector('meta[property="og:url"]')
   if (ogUrl) {
-    ogUrl.setAttribute('content', `https://edgar-treischl.de${to.path}`)
+    ogUrl.setAttribute('content', `${SITE_URL}${to.path}`)
   }
 
-  // Update Twitter Card tags
-  const twitterTitle = document.querySelector('meta[property="twitter:title"]')
+  // Update Twitter Card tags (using 'name' attribute)
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]')
   if (twitterTitle) {
     twitterTitle.setAttribute('content', title)
   }
 
-  const twitterDescription = document.querySelector('meta[property="twitter:description"]')
+  const twitterDescription = document.querySelector('meta[name="twitter:description"]')
   if (twitterDescription && description) {
     twitterDescription.setAttribute('content', description)
   }
 
-  const twitterUrl = document.querySelector('meta[property="twitter:url"]')
+  const twitterUrl = document.querySelector('meta[name="twitter:url"]')
   if (twitterUrl) {
-    twitterUrl.setAttribute('content', `https://edgar-treischl.de${to.path}`)
+    twitterUrl.setAttribute('content', `${SITE_URL}${to.path}`)
   }
 
   // Update canonical URL
@@ -163,7 +167,7 @@ router.afterEach((to) => {
     canonical.setAttribute('rel', 'canonical')
     document.head.appendChild(canonical)
   }
-  canonical.setAttribute('href', `https://edgar-treischl.de${to.path}`)
+  canonical.setAttribute('href', `${SITE_URL}${to.path}`)
 })
 
 export default router

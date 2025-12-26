@@ -15,6 +15,9 @@ interface SeoMeta {
   canonical?: string
 }
 
+// SEO Constants
+const SITE_URL = 'https://edgar-treischl.de'
+
 export function useSeo(meta: SeoMeta) {
   const route = useRoute()
 
@@ -23,7 +26,7 @@ export function useSeo(meta: SeoMeta) {
     if (meta.title) {
       document.title = meta.title
       updateMetaTag('property', 'og:title', meta.ogTitle || meta.title)
-      updateMetaTag('property', 'twitter:title', meta.twitterTitle || meta.title)
+      updateMetaTag('name', 'twitter:title', meta.twitterTitle || meta.title)
       updateMetaTag('name', 'title', meta.title)
     }
 
@@ -31,7 +34,7 @@ export function useSeo(meta: SeoMeta) {
     if (meta.description) {
       updateMetaTag('name', 'description', meta.description)
       updateMetaTag('property', 'og:description', meta.ogDescription || meta.description)
-      updateMetaTag('property', 'twitter:description', meta.twitterDescription || meta.description)
+      updateMetaTag('name', 'twitter:description', meta.twitterDescription || meta.description)
     }
 
     // Update keywords
@@ -44,9 +47,9 @@ export function useSeo(meta: SeoMeta) {
       updateMetaTag('property', 'og:image', meta.ogImage)
     }
 
-    // Update Twitter image
+    // Update Twitter image (using 'name' attribute)
     if (meta.twitterImage) {
-      updateMetaTag('property', 'twitter:image', meta.twitterImage)
+      updateMetaTag('name', 'twitter:image', meta.twitterImage)
     }
 
     // Update canonical URL
@@ -54,10 +57,10 @@ export function useSeo(meta: SeoMeta) {
       updateLinkTag('canonical', meta.canonical)
     }
 
-    // Update og:url
-    const currentUrl = `https://edgar-treischl.de${route.path}`
+    // Update og:url and twitter:url
+    const currentUrl = `${SITE_URL}${route.path}`
     updateMetaTag('property', 'og:url', currentUrl)
-    updateMetaTag('property', 'twitter:url', currentUrl)
+    updateMetaTag('name', 'twitter:url', currentUrl)
   }
 
   const updateMetaTag = (attr: string, key: string, content: string) => {
