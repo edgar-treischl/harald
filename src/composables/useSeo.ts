@@ -1,6 +1,7 @@
 // src/composables/useSeo.ts
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { SITE_URL } from '@/config/seo'
 
 interface SeoMeta {
   title?: string
@@ -14,9 +15,6 @@ interface SeoMeta {
   twitterImage?: string
   canonical?: string
 }
-
-// SEO Constants
-const SITE_URL = 'https://edgar-treischl.de'
 
 export function useSeo(meta: SeoMeta) {
   const route = useRoute()

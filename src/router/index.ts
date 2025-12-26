@@ -1,5 +1,6 @@
 // src/router/index.ts
 import { createRouter, createWebHistory } from 'vue-router'
+import { SITE_URL, DEFAULT_TITLE } from '@/config/seo'
 
 // Pages
 import Home from '@/pages/index.vue'
@@ -10,10 +11,6 @@ import TimelineView from '@/pages/TimelineView.vue'
 import Contact from '@/pages/Contact.vue'
 import Slides from '@/pages/Slides.vue'
 import License from '@/pages/License.vue'
-
-// SEO Constants
-const SITE_URL = 'https://edgar-treischl.de'
-const DEFAULT_TITLE = 'Edgar Treischl - Data Scientist & Technical Product Lead'
 
 const routes = [
   { 
