@@ -86,6 +86,20 @@ SEO constants are centralized in `src/config/seo.ts`:
 
 Each route in `src/router/index.ts` includes custom meta information that automatically updates when navigating between pages.
 
+### Maintaining SEO
+
+**When you update website content**, run the sitemap update script to refresh the last-modified dates:
+
+```bash
+npm run update-sitemap
+```
+
+📖 **For detailed maintenance instructions**, see [MAINTENANCE.md](./MAINTENANCE.md), which covers:
+- How to update the sitemap when content changes
+- When and how to update SEO configuration
+- How to add new pages to the sitemap
+- How to customize SEO for specific pages
+
 ### Advanced Usage
 
 For custom SEO on specific pages, use the `useSeo` composable:
