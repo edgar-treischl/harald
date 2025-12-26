@@ -11,23 +11,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    BlogCard: typeof import('./src/components/BlogCard.vue')['default']
-    BlogList: typeof import('./src/components/BlogList.vue')['default']
-    BlogPage: typeof import('./src/components/BlogPage.vue')['default']
-    CodeBlock: typeof import('./src/components/CodeBlock.vue')['default']
     CustomProjectPage: typeof import('./src/components/CustomProjectPage.vue')['default']
-    Del_BlogCard: typeof import('./src/components/Del_BlogCard.vue')['default']
-    Del_BlogList: typeof import('./src/components/Del_BlogList.vue')['default']
-    Del_BlogPage: typeof import('./src/components/Del_BlogPage.vue')['default']
-    Del_CodeBlock: typeof import('./src/components/Del_CodeBlock.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
     LanguageBar: typeof import('./src/components/LanguageBar.vue')['default']
-    Licence: typeof import('./src/components/Licence.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
-    Old_ProjectCard: typeof import('./src/components/Old_ProjectCard.vue')['default']
-    ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StandardProjectPage: typeof import('./src/components/StandardProjectPage.vue')['default']
