@@ -33,6 +33,7 @@ const updateSitemap = () => {
     console.log(`📅 Current date: ${currentDate}`);
     
     // Replace all lastmod dates with current date
+    // Pattern specifically matches ISO date format (YYYY-MM-DD) within lastmod tags
     const updatedSitemap = sitemap.replace(
       /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g,
       `<lastmod>${currentDate}</lastmod>`
@@ -44,7 +45,12 @@ const updateSitemap = () => {
     console.log(`   File: ${SITEMAP_PATH}`);
     console.log(`   All lastmod dates set to: ${currentDate}`);
   } catch (error) {
-    console.error('❌ Error updating sitemap:', error.message);
+    if (error.code === 'ENOENT') {
+      console.error('❌ Error: sitemap.xml not found at:', SITEMAP_PATH);
+      console.error('   Make sure the file exists in the public/ directory.');
+    } else {
+      console.error('❌ Error updating sitemap:', error.message);
+    }
     process.exit(1);
   }
 };

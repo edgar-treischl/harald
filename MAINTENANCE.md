@@ -138,7 +138,11 @@ If you're unsure whether you need to update something:
 - **Content change** (blog post, project info, etc.) → Update sitemap
 - **New page added** → Add to sitemap + update router meta
 - **Styling/UI only** → No SEO updates needed
-- **Domain change** → Update `src/config/seo.ts` and all absolute URLs
+- **Domain change** → Update the following:
+  - `src/config/seo.ts` (SITE_URL constant)
+  - `public/sitemap.xml` (all `<loc>` URLs - update manually or replace the domain in the file)
+  - `public/robots.txt` (Sitemap URL)
+  - `index.html` (all absolute URLs in meta tags and structured data)
 
 ---
 
