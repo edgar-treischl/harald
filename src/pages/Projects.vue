@@ -126,7 +126,7 @@ interface Project extends RawProject {
  * State
  * ---------------------------------- */
 
-const topics = ref<string[]>(['All', 'R'])
+const topics = ref<string[]>(['All', 'Books', 'Python', 'R', 'Web'])
 const activeTopic = ref<string>('All')
 
 /* ----------------------------------
