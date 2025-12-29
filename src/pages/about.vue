@@ -265,7 +265,10 @@ const itemsPL = [
 
 
 
-const avatarImage = import.meta.env.BASE_URL + 'images/avatar.png'
+/* const avatarImage = import.meta.env.BASE_URL + '/images/avatar.webp'*/
+
+const avatarImage = '/images/avatar.webp'
+
 const cvUrl = `${import.meta.env.BASE_URL}CV_Treischl.pdf`
 
 /* local scroll-fade directive (About page only) */

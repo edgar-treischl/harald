@@ -1,10 +1,12 @@
 // src/data/slidesData.js
 
-const Icon1 = import.meta.env.BASE_URL + 'images/slides_code.png'
-const Icon2 = import.meta.env.BASE_URL + 'images/slides_git.png'
-const Icon3 = import.meta.env.BASE_URL + 'images/slides_packages.png'
-const Icon4 = import.meta.env.BASE_URL + 'images/ebf_website.png'
-const Icon5 = import.meta.env.BASE_URL + 'images/slides_program.png'
+//  const Icon1 = import.meta.env.BASE_URL + 'images/slides_code.png'
+
+const Icon1 = 'images/slides_code.png'
+const Icon2 = 'images/slides_git.png'
+const Icon3 = 'images/slides_packages.png'
+const Icon4 = '/images/ebf.webp'
+const Icon5 = 'images/slides_program.png'
 
 export const projects = [
   {
