@@ -38,11 +38,10 @@ import { computed } from 'vue'
 // Capture project from props correctly
 const { project } = defineProps<{ project: any }>()
 
-// Compute full image URL
-const projectFullImage = computed(() => {
-  return project?.image ? import.meta.env.BASE_URL + project.image : ''
-})
+// Public images → use absolute paths directly
+const projectFullImage = computed(() => project?.image || '')
 </script>
+
 
 <style scoped>
 .custom-project {

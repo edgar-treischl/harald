@@ -111,15 +111,16 @@ interface Project extends RawProject {
  * Prepare data (sort → normalize)
  * ---------------------------------- */
 
-const projects: Project[] = [...(rawProjects as RawProject[])]
+  const projects: Project[] = [...(rawProjects as RawProject[])]
   .sort((a, b) =>
     a.title.localeCompare(b.title, 'en', { sensitivity: 'base' })
   )
   .map(project => ({
     ...project,
     layout: project.layout ?? 'standard',
-    fullImage: import.meta.env.BASE_URL + project.image,
+    fullImage: project.image, // ✅ FIX
   }))
+
 
 /* ----------------------------------
  * State

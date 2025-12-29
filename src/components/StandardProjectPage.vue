@@ -69,9 +69,9 @@ import { computed } from 'vue'
 const { project } = defineProps<{ project: any }>()
 
 // Compute full image path
-const projectFullImage = computed(() => {
-  return project?.image ? import.meta.env.BASE_URL + project.image : ''
-})
+const projectFullImage = computed(() => project?.image || '')
+
+
 </script>
 
 <style scoped>
