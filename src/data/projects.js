@@ -41,8 +41,8 @@ export const projects = [
   },
   {
     id: 'titanic',
-    title: 'Titanic App',
-    description: 'The shiny app introduces the basics of a logistic regression and examines who survived the Titanic accident. It outlines the logic of a logistic regression, it underlines what a odds ratio measures, and it discusses the performance of such models.',
+    title: 'Titanic/Logistic Regression App',
+    description: 'During my time at university, I developed several educational apps. For example, the Titanic app introduces the fundamentals of logistic regression by exploring who survived the Titanic disaster. It explains the logic behind logistic regression, highlights the interpretation of odds ratios, and evaluates model performance. Originally built with R Shiny, I later recreated the app using React to improve its interactivity and user experience.',
     image: '/images/titanic.png', // relative path
     link: 'https://edgar-treischl.github.io/TitanicApp/',
     topics: ['Web'],
@@ -62,7 +62,7 @@ export const projects = [
   {
     id: 'docster',
     title: 'Docster',
-    description: 'Docster is a documentation website built with Docusaurus. Docusaurus uses React under the hood, making it easy to create interactive, customizable sites with Markdown-based content. The website is used as central documentation hub for various projects, providing users with easy access to guides, tutorials, and references.\n \nThe Docster website features a clean and modern design, with a focus on usability and accessibility. It includes a search function, navigation menu, and responsive layout that adapts to different screen sizes. The site is hosted on GitLab Pages, making it easy to deploy and maintain.',
+    description: 'Docster is a documentation website I built with Docusaurus to enhance internal documentation standards. Leveraging React under the hood, Docusaurus makes it easy to create interactive, customizable sites with Markdown-based content. Docster serves as a central hub for various projects, giving users quick access to guides, tutorials, and references. \n \n The website features a clean, modern design focused on usability and accessibility. It includes a powerful search function, intuitive navigation, and a responsive layout that adapts seamlessly to different screen sizes. Hosted on GitLab Pages, Docster is easy to deploy, maintain, and update.',
     image: '/images/docster.png',
     link: '',
     topics: ['Web'],
@@ -72,7 +72,7 @@ export const projects = [
     {
     id: 'harald',
     title: 'Website',
-    description: 'This website built with Vue.js. It serves as a portfolio to showcase my projects, skills, and experiences. The website features a clean and modern design, with a focus on usability and accessibility. It includes sections for my bio, projects, slides, and contact information.',
+    description: 'My personal website, built with Vue.js, is a showcase of my projects, skills, and experiences. Designed with a clean and modern aesthetic, it prioritizes usability and accessibility to create an intuitive browsing experience. Visitors can explore my bio, dive into my projects, view presentations, and get in touch through the contact section—all in one seamless platform.',
     image: '/images/harald.png',
     link: 'https://github.com/edgar-treischl/harald',
     topics: ['Web'],
