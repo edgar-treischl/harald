@@ -1,0 +1,16 @@
+name: harald
+description: Personal Website made with Vue.js
+dev_path: work/apps        # → ~/code/work/apps/my-api
+role: project
+status: deployed
+tags:
+  - frontend
+language: js
+setup:
+  - yarn dev
+env:
+services:
+depends_on:
+workspace: []
+update_strategy: []
+priority: []
