@@ -1,6 +1,6 @@
 name: harald
 description: Personal Website made with Vue.js
-dev_path: work/apps        # → ~/code/work/apps/my-api
+dev_path: web
 role: project
 status: deployed
 tags:
@@ -11,6 +11,6 @@ setup:
 env:
 services:
 depends_on:
-workspace: []
-update_strategy: []
-priority: []
+workspace:
+update_strategy:
+priority: 

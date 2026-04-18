@@ -34,7 +34,7 @@ export const projects = [
     title: 'Wirkungsevaluation',
     description: 'Evaluationen werden häufig durchgeführt, um die kausalen Wirkungen einer Maßnahme zu identifizieren. Das Lehrbuch führt in die entsprechenden theoretischen und methodischen Grundlagen der Wirkungsevaluation ein und illustriert diese anhand ausgewählter Beispiele.\n \nZiel des Buches ist es dabei, einen praktischen Bezug zum Ablauf einer Evaluation und den einzelnen Entscheidungsschritten herzustellen, aber auch mögliche Fallstricke unterschiedlicher Evaluationsverfahren aufzuzeigen. Eine Lektüre ist daher sowohl für Evaluationsforschende als auch für Stakeholder wie Auftraggebende, Evaluierte und Entscheidungsträger ertragreich.',
     image: '/images/wirkungsevaluation.png', // relative path
-    link: 'https://www.beltz.de/fachmedien/soziologie/produkte/details/42792-wirkungsevaluation.html',
+    link: 'https://www.beltz.de/fachmedien/soziologie/wirkungsevaluation/BEL445182',
     topics: ['Books'],
     technologies: ['Kausalanalyse', 'Evaluation', 'Forschungsdesigns'],
     layout: 'custom',
