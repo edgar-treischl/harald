@@ -53,7 +53,7 @@ export const projects = [
     id: 'reportmaster',
     title: 'ReportMaster',
     description: 'ReportMaster is designed to automatically create dynamic reports for Lime Survey. The package checks whether a survey has expired, retrieves data through the LimeSurvey API, and combines it with metadata to generate a dynamic report.\n \nThe package is accompanied by the MetaMaster package, which automatically generates metadata for LimeSurvey. The main functions of ReportMaster are designed to run in a Docker container and be executed as a cron job. This setup enables the package to generate reports for expired surveys. \n \n I created this package when I worked at the ISB Munich. Get in touch with me if you want to know more about it.',
-    image: '/images/reportmaster-assessment-planning.svg',
+    image: '/images/oes.webp', // relative path
     link: '',
     topics: ['R'],
     technologies: ['Automation', 'Lime Survey', 'R'],
