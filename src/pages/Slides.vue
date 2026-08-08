@@ -56,22 +56,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { projects as rawProjects } from '@/data/slidesData'
-
-// TypeScript type
-interface Slide {
-  id: string
-  title: string
-  description: string
-  image: string
-  url?: string
-  topics: string[]
-}
-
-// Projects data (sorted A → Z by title)
-const projects: Slide[] = [...rawProjects].sort((a, b) =>
-  a.title.localeCompare(b.title, undefined, { sensitivity: 'base' })
-)
+import { slideCatalog as projects, type Slide } from '@/data/slideCatalog'
 
 // Currently selected slide (always initialized to first)
 const currentSlide = ref<Slide>(projects[0]!)

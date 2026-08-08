@@ -1,6 +1,7 @@
 // src/router/index.ts
 import { createRouter, createWebHistory } from 'vue-router'
-import { SITE_URL, DEFAULT_TITLE } from '@/config/seo'
+import { DEFAULT_TITLE } from '@/config/seo'
+import { buildSiteUrl, upsertLinkTag, upsertMetaTag } from '@/utils/seo'
 
 // Pages
 import Home from '@/pages/index.vue'
@@ -103,72 +104,38 @@ const router = createRouter({
 
 // Update meta tags on route change
 router.afterEach((to) => {
-  // Update document title
-  const title = to.meta.title as string || DEFAULT_TITLE
+  const title = (to.meta.title as string) || DEFAULT_TITLE
   document.title = title
 
-  // Update meta description
   const description = to.meta.description as string
   if (description) {
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description)
-    }
+    upsertMetaTag('name', 'description', description)
   }
 
-  // Update meta keywords
   const keywords = to.meta.keywords as string
   if (keywords) {
-    const metaKeywords = document.querySelector('meta[name="keywords"]')
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords)
-    }
+    upsertMetaTag('name', 'keywords', keywords)
   }
 
-  // Update Open Graph tags
-  const ogTitle = document.querySelector('meta[property="og:title"]')
-  if (ogTitle) {
-    ogTitle.setAttribute('content', title)
+  upsertMetaTag('property', 'og:title', title)
+
+  if (description) {
+    upsertMetaTag('property', 'og:description', description)
   }
 
-  const ogDescription = document.querySelector('meta[property="og:description"]')
-  if (ogDescription && description) {
-    ogDescription.setAttribute('content', description)
+  upsertMetaTag('property', 'og:url', buildSiteUrl(to.path))
+
+  upsertMetaTag('name', 'twitter:title', title)
+
+  if (description) {
+    upsertMetaTag('name', 'twitter:description', description)
   }
 
-  const ogUrl = document.querySelector('meta[property="og:url"]')
-  if (ogUrl) {
-    ogUrl.setAttribute('content', `${SITE_URL}${to.path}`)
-  }
+  upsertMetaTag('name', 'twitter:url', buildSiteUrl(to.path))
 
-  // Update Twitter Card tags (using 'name' attribute)
-  const twitterTitle = document.querySelector('meta[name="twitter:title"]')
-  if (twitterTitle) {
-    twitterTitle.setAttribute('content', title)
-  }
-
-  const twitterDescription = document.querySelector('meta[name="twitter:description"]')
-  if (twitterDescription && description) {
-    twitterDescription.setAttribute('content', description)
-  }
-
-  const twitterUrl = document.querySelector('meta[name="twitter:url"]')
-  if (twitterUrl) {
-    twitterUrl.setAttribute('content', `${SITE_URL}${to.path}`)
-  }
-
-  // Update canonical URL
-  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
-  if (!canonical) {
-    canonical = document.createElement('link')
-    canonical.setAttribute('rel', 'canonical')
-    document.head.appendChild(canonical)
-  }
-  canonical.setAttribute('href', `${SITE_URL}${to.path}`)
+  upsertLinkTag('canonical', buildSiteUrl(to.path))
 })
 
 export default router
-
-
 
 

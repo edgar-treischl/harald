@@ -18,34 +18,16 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { projects as rawProjects } from '@/data/projects'
+import { findProjectById } from '@/data/projectCatalog'
 
 // Import layouts
 import StandardProjectPage from '@/components/StandardProjectPage.vue'
 import CustomProjectPage from '@/components/CustomProjectPage.vue'
 
-// Define Project type
-interface Project {
-  id: string | number
-  title: string
-  description: string
-  image: string
-  topics: string[]
-  layout?: 'standard' | 'custom'
-}
-
-// Map projects and ensure layout exists
-const projectList: Project[] = rawProjects.map(p => ({
-  ...p,
-  layout: (p as Project).layout || 'standard',
-}))
-
 const route = useRoute()
 
-// Make sure to compare IDs as strings
 const project = computed(() => {
-  const id = String(route.params.projectId)
-  return projectList.find(p => String(p.id) === id)
+  return findProjectById(route.params.projectId)
 })
 
 const layoutComponent = computed(() => {

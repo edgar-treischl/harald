@@ -3,5 +3,8 @@ export const projects: {
   title: string;
   description: string;
   image: string;
+  link?: string;
   topics: string[];
+  technologies: string[];
+  layout?: 'standard' | 'custom';
 }[];

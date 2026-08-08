@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { projects } from '@/data/slidesData' // adjust path if needed
+import { slideCatalog as projects } from '@/data/slideCatalog'
 
 
 export default {
@@ -139,5 +139,4 @@ export default {
   background-color: #ffffff; /* keep text area consistent */
 }
 </style>
-
 

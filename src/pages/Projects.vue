@@ -85,58 +85,15 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { projects as rawProjects } from '@/data/projects'
+import { projectCatalog, projectTopics } from '@/data/projectCatalog'
 
-/* ----------------------------------
- * Types
- * ---------------------------------- */
-
-type Layout = 'standard' | 'custom'
-
-interface RawProject {
-  id: string | number
-  title: string
-  description: string
-  image: string
-  topics: string[]
-  layout?: Layout
-}
-
-interface Project extends RawProject {
-  layout: Layout
-  fullImage: string
-}
-
-/* ----------------------------------
- * Prepare data (sort → normalize)
- * ---------------------------------- */
-
-  const projects: Project[] = [...(rawProjects as RawProject[])]
-  .sort((a, b) =>
-    a.title.localeCompare(b.title, 'en', { sensitivity: 'base' })
-  )
-  .map(project => ({
-    ...project,
-    layout: project.layout ?? 'standard',
-    fullImage: project.image, // ✅ FIX
-  }))
-
-
-/* ----------------------------------
- * State
- * ---------------------------------- */
-
-const topics = ref<string[]>(['All', 'Books', 'Python', 'R', 'Web'])
+const topics = ref<string[]>(projectTopics)
 const activeTopic = ref<string>('All')
 
-/* ----------------------------------
- * Computed
- * ---------------------------------- */
-
-const filteredProjects = computed<Project[]>(() =>
+const filteredProjects = computed(() =>
   activeTopic.value === 'All'
-    ? projects
-    : projects.filter(project =>
+    ? projectCatalog
+    : projectCatalog.filter(project =>
         project.topics.includes(activeTopic.value)
       )
 )
