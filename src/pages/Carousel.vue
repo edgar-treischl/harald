@@ -30,7 +30,7 @@
       height="550"
     >
       <v-carousel-item
-        v-for="(project, index) in filteredProjects"
+        v-for="project in filteredProjects"
         :key="project.id"
       >
         <a
@@ -139,4 +139,3 @@ export default {
   background-color: #ffffff; /* keep text area consistent */
 }
 </style>
-

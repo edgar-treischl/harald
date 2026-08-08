@@ -150,7 +150,7 @@ const submitForm = async () => {
       status.value = 'error'
     }
 
-  } catch (e) {
+  } catch {
     status.value = 'error'
   }
 }
